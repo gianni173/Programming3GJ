@@ -11,7 +11,7 @@ public class FiringMode : ScriptableObject
 
     #region Methods
 
-    public virtual void Shoot(Transform firingPoint, ProjectileType projectile)
+    public virtual void Shoot(Transform firingPoint, ProjectileType projectile, bool isPlayer)
     {}
 
     #endregion

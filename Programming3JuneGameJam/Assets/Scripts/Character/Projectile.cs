@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 
     public ProjectileType type;
     public Rigidbody rb;
+    public bool targetIsPlayer;
 
     #endregion
 

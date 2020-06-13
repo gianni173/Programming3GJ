@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     public CharacterStats stats;
     public CharacterInput input;
     public CharacterMovement movement;
+    public bool isPlayer;
     
     // stats
     public float HP 
@@ -34,7 +35,7 @@ public class Character : MonoBehaviour
     }
     public int Atk { get => atk; set => atk = value; }
     public int Spd { get => spd; set => spd = value; }
-    
+
     private float hp;
     private int atk;
     private int spd;
@@ -47,6 +48,8 @@ public class Character : MonoBehaviour
     {
         InitCharacter();
     }
+    
+    
 
     #endregion
     

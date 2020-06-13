@@ -37,7 +37,14 @@ public class CharacterInput : MonoBehaviour
         {
             character.movement.Move(inputType.GetMovementInput());
             character.movement.LookAt(inputType.LookAtInput(transform, cam));
-            inputType.ShootInput(weapon.firingMode, weapon.firingPoint, weapon.projectileType);
+            if (weapon.firingMode && weapon.firingPoint && weapon.projectileType)
+            {
+                inputType.ShootInput(character, weapon.firingMode, weapon.firingPoint, weapon.projectileType);    
+            }
+            else
+            {
+                Debug.LogError($"It seems {gameObject}'s weapon miss some reference!");
+            }
         }
     }
 
