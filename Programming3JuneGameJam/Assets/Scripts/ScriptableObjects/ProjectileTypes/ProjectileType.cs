@@ -16,10 +16,10 @@ public class ProjectileType : ScriptableObject
 
     #region Methods
     
-    public virtual ProjectileControl SpawnProjectile(Vector3 spawnPoint)
+    public virtual Projectile SpawnProjectile(Vector3 spawnPoint)
     {
         var instance = Instantiate(prefab, spawnPoint, Quaternion.identity);
-        return instance.GetComponent<ProjectileControl>();
+        return instance.GetComponent<Projectile>();
     }
 
     public virtual void ProjectileBehaviour()

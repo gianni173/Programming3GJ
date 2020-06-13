@@ -9,6 +9,7 @@ public class CharacterInput : MonoBehaviour
     public Character character;
     public Camera cam;
     public InputType inputType;
+    public Weapon weapon;
 
     #endregion
 
@@ -36,6 +37,7 @@ public class CharacterInput : MonoBehaviour
         {
             character.movement.Move(inputType.GetMovementInput());
             character.movement.LookAt(inputType.LookAtInput(transform, cam));
+            inputType.ShootInput(weapon.firingMode, weapon.firingPoint, weapon.projectileType);
         }
     }
 
