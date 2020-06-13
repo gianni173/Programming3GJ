@@ -4,18 +4,9 @@ public class CharacterMovement : MonoBehaviour
 {
     #region Fields
 
-    [HideInInspector]
-    public Character character;
     public Transform graphics;
 
-    #endregion
-
-    #region UnityCallbacks
-
-    private void Awake()
-    {
-        character = GetComponent<Character>();
-    }
+    [SerializeField] private Character character;
 
     #endregion
 

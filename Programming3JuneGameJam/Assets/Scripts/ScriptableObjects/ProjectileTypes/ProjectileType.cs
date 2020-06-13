@@ -22,8 +22,7 @@ public class ProjectileType : ScriptableObject
         return instance.GetComponent<Projectile>();
     }
 
-    public virtual void ProjectileBehaviour()
-    {}
+    public virtual void ProjectileBehaviour() {}
 
     #endregion
 }
