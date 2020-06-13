@@ -1,16 +1,13 @@
 ﻿using Sirenix.OdinInspector;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class HealthBar : MonoBehaviour
+public class UIDeathGauge : MonoBehaviour
 {
     [Title("References")]
-    [SerializeField] private Slider slider = null;
-    [SerializeField] private Image fill = null;
+    [SerializeField] private TextMeshProUGUI number = null;
     [SerializeField] private Image background = null;
-    [SerializeField] private SliderColors[] sliderColors = null;
 
     [Space(5), Title("Debugging")]
     [SerializeField] private bool isDebugging = false;
@@ -28,26 +25,19 @@ public class HealthBar : MonoBehaviour
     public void SetValue(float currValue, float maxValue)
     {
         float normalizedValue = (float)(currValue - .001) % maxValue;
-        slider.value = normalizedValue / maxValue;
+        number.text = ((int)(normalizedValue / maxValue)).ToString();
         UpdateColor(currValue, maxValue);
     }
 
     private void UpdateColor(float currValue, float maxValue)
     {
         var numberOfBars = (int)((currValue - .001) / maxValue);
-        if(numberOfBars >= sliderColors.Length)
+        if (numberOfBars >= GlobalSettings.Instance.healthColors.Length)
         {
-            numberOfBars = sliderColors.Length - 1;
+            numberOfBars = GlobalSettings.Instance.healthColors.Length - 1;
         }
 
-        fill.color = sliderColors[numberOfBars].fillColor;
-        background.color = sliderColors[numberOfBars].backgroundColor;
-    }
-
-    [System.Serializable]
-    public struct SliderColors
-    {
-        public Color fillColor;
-        public Color backgroundColor;
+        number.color = GlobalSettings.Instance.healthColors[numberOfBars].fillColor;
+        background.color = GlobalSettings.Instance.healthColors[numberOfBars].backgroundColor;
     }
 }
