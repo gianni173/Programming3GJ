@@ -8,14 +8,30 @@ public class Character : MonoBehaviour
 {
     #region Fields
 
+    public event Action<Character> OnDeath;
+    public event Action<float, float> OnHealthChanged;
+
     public CharacterStats stats;
-    [HideInInspector]
     public CharacterInput input;
-    [HideInInspector]
     public CharacterMovement movement;
     
     // stats
-    public float HP { get => hp; set => hp = value; }
+    public float HP 
+    { 
+        get => hp;
+        set
+        {
+            if (hp != value)
+            {
+                hp = value;
+                OnHealthChanged?.Invoke(hp, stats.basicHP);
+                if(hp < 0)
+                {
+                    OnDeath?.Invoke(this);
+                }
+            }
+        }
+    }
     public int Atk { get => atk; set => atk = value; }
     public int Spd { get => spd; set => spd = value; }
     
@@ -26,12 +42,6 @@ public class Character : MonoBehaviour
     #endregion
     
     #region UnityCallbacks
-
-    private void Awake()
-    {
-        input = GetComponent<CharacterInput>();
-        movement = GetComponent<CharacterMovement>();
-    }
 
     private void Start()
     {
