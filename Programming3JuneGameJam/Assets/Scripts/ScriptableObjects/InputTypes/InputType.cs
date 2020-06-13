@@ -25,5 +25,8 @@ public class InputType : ScriptableObject
         return false;
     }
 
+    public virtual void ShootInput(FiringMode firingMode, Transform firingPoint, ProjectileType type)
+    {}
+
     #endregion
 }

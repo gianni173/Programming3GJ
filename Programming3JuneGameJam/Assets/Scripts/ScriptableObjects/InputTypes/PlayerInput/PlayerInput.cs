@@ -24,5 +24,13 @@ public class PlayerInput : InputType
         return Vector3.zero;
     }
 
+    public override void ShootInput(FiringMode firingMode, Transform firingPoint, ProjectileType type)
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            firingMode.Shoot(firingPoint, type);
+        }
+    }
+
     #endregion
 }
