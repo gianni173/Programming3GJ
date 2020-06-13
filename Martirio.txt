@@ -7,7 +7,8 @@
   MA Quando muori hai X secondi di RAGE
   Nello stato di RAGE:
 	-Se non (fai qualcosa) entro X secondi Muori definitivamente.
-	-Big BUFF che ti da (boh) più danno, più velocità, immortale ma i colpi ti riducono la "DeathGauge".
+	-Big BUFF che ti da (boh) più danno, più velocità, immortale ma i colpi 
+	 ti riducono la "DeathGauge".
 	-Facendo "questo qualcosa" ottieni "DeathGauge" (palline on kill, boh) 
 	 che, se superato un certo treshold, alla fine del tempo ti fa tornare
 	 in vita con dei potenziamenti che si riducono nel tempo.
@@ -25,9 +26,9 @@
 	Sparo
 
 - UI:
-	Barra della vita
-	Death Gauge
-	Menu (?)
+	Barra della vita	(fatto)
+	Death Gauge		(fatto)
+	Menu			(fatto)
 	
 - Animazioni:
 	Walk
