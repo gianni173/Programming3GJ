@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
   m_Name: character_stats
   m_EditorClassIdentifier: 
-  basicHP: 0
-  basicAtk: 0
-  basicSpd: 0
+  basicHP: 100
+  basicAtk: 10
+  basicSpd: 10
