@@ -13,17 +13,15 @@
 	 che, se superato un certo treshold, alla fine del tempo ti fa tornare
 	 in vita con dei potenziamenti che si riducono nel tempo.
 
-- Player:
+- Character:
 	Sistema di Movimento
 	Sistema di Statistiche
-	Sistema di Sparo
-	Sistema di Rage	
-	Sistema Input
+	Sistema di Rage
+	Sistema Input (Player/AI)
 
-- Enemy:
-	Ai
-	Statistiche
-	Sparo
+- Sparo:
+	ProjectileType (prefab, danni, velocità, ecc)
+	FiringMode (a cono, rapido, lento, ecc)
 
 - UI:
 	Barra della vita	(fatto)
@@ -49,5 +47,3 @@ Level:
 
 AI:
 	State Machine
-
-		
