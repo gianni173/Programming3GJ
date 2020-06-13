@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     #region Fields
 
     public ProjectileType type;
+    public bool targetIsPlayer;
 
     [Required, SerializeField] private Rigidbody rb;
 
