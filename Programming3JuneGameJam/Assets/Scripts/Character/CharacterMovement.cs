@@ -4,6 +4,7 @@ public class CharacterMovement : MonoBehaviour
 {
     #region Fields
 
+    [HideInInspector]
     public Character character;
     public Transform graphics;
 
@@ -22,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        transform.Translate(direction * (character.Spd * Time.deltaTime), transform);
+        transform.Translate(direction * (character.Spd * Time.deltaTime), Space.World);
     }
     
     public void LookAt(Vector3 target)
@@ -31,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
         {
             target = transform.position + transform.forward;
         }
-        graphics.LookAt(target);
+        transform.LookAt(target);
     }
 
     #endregion

@@ -9,7 +9,9 @@ public class Character : MonoBehaviour
     #region Fields
 
     public CharacterStats stats;
+    [HideInInspector]
     public CharacterInput input;
+    [HideInInspector]
     public CharacterMovement movement;
     
     // stats

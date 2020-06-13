@@ -5,6 +5,7 @@ public class CharacterInput : MonoBehaviour
 {
     #region Fields
 
+    [HideInInspector]
     public Character character;
     public Camera cam;
     public InputType inputType;
