@@ -1,0 +1,52 @@
+
+--Morte (Martirio) -> Rage per X secondi dove puoi fare più cose -> 
+	se non fai qualcosa entro X secondi muori completamente
+- TPS, Isometrico (Diablo like)
+  WASD, Spari con mouse su cursore
+  Semplice BulletHell / Livelli
+  MA Quando muori hai X secondi di RAGE
+  Nello stato di RAGE:
+	-Se non (fai qualcosa) entro X secondi Muori definitivamente.
+	-Big BUFF che ti da (boh) più danno, più velocità, immortale ma i colpi ti riducono la "DeathGauge".
+	-Facendo "questo qualcosa" ottieni "DeathGauge" (palline on kill, boh) 
+	 che, se superato un certo treshold, alla fine del tempo ti fa tornare
+	 in vita con dei potenziamenti che si riducono nel tempo.
+
+- Player:
+	Sistema di Movimento
+	Sistema di Statistiche
+	Sistema di Sparo
+	Sistema di Rage	
+	Sistema Input
+
+- Enemy:
+	Ai
+	Statistiche
+	Sparo
+
+- UI:
+	Barra della vita
+	Death Gauge
+	Menu (?)
+	
+- Animazioni:
+	Walk
+	Run
+	Aim (upper body)
+	Shoot (upper body)
+	Hit (upper body)
+	Death
+
+- VFX:
+	Post Processing (Rage, Death, ... (da aggiungere))
+	Particles (Proiettili, esplosioni, sangue, Hit (Normale, Rage)...(da aggiungere))
+	Shaders ;)))))))(?)
+
+Level:
+	Sistema Wave di nemici
+	Score System (ma si dai)
+
+AI:
+	State Machine
+
+		
