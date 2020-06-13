@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -5,17 +6,21 @@ public class Projectile : MonoBehaviour
     #region Fields
 
     public ProjectileType type;
-    public Rigidbody rb;
+
+    [Required, SerializeField] private Rigidbody rb;
+
+    private float currLifeTime = 0f;
 
     #endregion
 
-    #region UnityCallbacks
+    #region Unity Callbacks
 
-    private void Awake()
+    private void Update()
     {
-        if (!rb)
+        currLifeTime += Time.deltaTime;
+        if(currLifeTime > type.lifeTime)
         {
-            rb = GetComponent<Rigidbody>();
+            Despawn();
         }
     }
 
@@ -25,8 +30,13 @@ public class Projectile : MonoBehaviour
 
     public void Push(Vector3 direction)
     {
-        rb.AddForce(direction * type.speed * Time.deltaTime, ForceMode.VelocityChange);
+        rb.AddForce(direction * type.speed, ForceMode.VelocityChange);
         transform.LookAt(transform.position + direction);
+    }
+
+    private void Despawn()
+    {
+        Destroy(gameObject);
     }
 
     #endregion
