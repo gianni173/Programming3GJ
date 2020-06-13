@@ -5,11 +5,11 @@ public class CharacterInput : MonoBehaviour
 {
     #region Fields
 
-    [HideInInspector]
-    public Character character;
-    public Camera cam;
-    public InputType inputType;
-    public Weapon weapon;
+    [SerializeField] private Character character;
+    [SerializeField] private InputType inputType;
+    [SerializeField] private Weapon weapon;
+
+    private Camera cam;
 
     #endregion
 
@@ -17,9 +17,10 @@ public class CharacterInput : MonoBehaviour
 
     private void Awake()
     {
-        character = GetComponent<Character>();
         if (cam == null)
+        {
             cam = Camera.main;
+        }
     }
 
     private void Update()

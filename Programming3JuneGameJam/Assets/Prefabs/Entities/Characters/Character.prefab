@@ -202,8 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76d4710460943f7ad4618a74b6b51a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  cam: {fileID: 0}
+  character: {fileID: 5370968409123088719}
   inputType: {fileID: 11400000, guid: 6596387dc4d19c9498f325110c4675b6, type: 2}
   weapon: {fileID: 321278044793881368}
 --- !u!114 &5370968409123088713
@@ -218,8 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3309e67913304861a7e054d959e66d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
   graphics: {fileID: 5370968409995944560}
+  character: {fileID: 5370968409123088719}
 --- !u!1 &5370968409995944563
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f1bdead1b58dac54f8eaf6b268a26e0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
