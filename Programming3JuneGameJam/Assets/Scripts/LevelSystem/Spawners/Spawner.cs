@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
         IsActive = startsActive;
         foreach(TriggerDetector detector in activators)
         {
-            detector.OnTriggered += Activate;
+            detector.OnTriggerEntered += Activate;
         }
     }
 
@@ -110,7 +110,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void Activate()
+    private void Activate(Collider collidedObject)
     {
         if(!IsActive)
         {

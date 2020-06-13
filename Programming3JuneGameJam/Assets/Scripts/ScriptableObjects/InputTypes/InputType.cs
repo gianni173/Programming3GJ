@@ -4,9 +4,9 @@ public abstract class InputType : ScriptableObject
 {
     #region Methods
 
-    public abstract Vector3 GetMovementInput();
-    public abstract Vector3 LookAtInput(Transform transform, Camera cam = null);
-    public abstract void ShootInput(FiringMode firingMode, Transform firingPoint, ProjectileType type);
+    public abstract Vector3 GetMovementInput(Character target, Transform transform);
+    public abstract Vector3 LookAtInput(Character target, Transform transform, Camera cam = null);
+    public abstract bool ShootInput(Character target, Transform firingPoint);
 
     #endregion
 }

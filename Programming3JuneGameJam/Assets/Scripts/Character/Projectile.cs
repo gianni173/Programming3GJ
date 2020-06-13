@@ -1,4 +1,7 @@
 using Sirenix.OdinInspector;
+using System;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,9 +10,10 @@ public class Projectile : MonoBehaviour
 
     public ProjectileType type;
 
-    [Required, SerializeField] private Rigidbody rb;
+    [NonSerialized] public Faction ownerFaction;
 
     private float currLifeTime = 0f;
+    private bool hasHit = false;
 
     #endregion
 
@@ -24,19 +28,42 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     #endregion
 
     #region Methods
 
     public void Push(Vector3 direction)
     {
-        rb.AddForce(direction * type.speed, ForceMode.VelocityChange);
         transform.LookAt(transform.position + direction);
+    }
+
+    private void Move()
+    {
+        transform.position += transform.forward * Time.fixedDeltaTime * type.speed;
     }
 
     private void Despawn()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!hasHit)
+        {
+            var characterHit = other.GetComponent<Character>();
+            if (characterHit != null && characterHit.faction.IsEnemy(ownerFaction))
+            {
+                characterHit.HP -= type.damage;
+                hasHit = true;
+                Despawn();
+            }
+        }
     }
 
     #endregion

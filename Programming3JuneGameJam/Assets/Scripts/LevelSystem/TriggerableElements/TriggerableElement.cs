@@ -49,11 +49,11 @@ public class TriggerableElement : MonoBehaviour
         IsActive = startsActive;
         foreach (TriggerDetector detector in activators)
         {
-            detector.OnTriggered += Activate;
+            detector.OnTriggerEntered += Activate;
         }
     }
 
-    private void Activate()
+    private void Activate(Collider collidedObject)
     {
         IsActive = !IsActive;
     }

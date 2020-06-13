@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: character_stats
+  m_Name: base_character_stats
   m_EditorClassIdentifier: 
   basicHP: 100
   basicAtk: 10

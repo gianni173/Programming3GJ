@@ -5,7 +5,7 @@ public class PlayerInput : InputType
 {
     #region Methods
 
-    public override Vector3 GetMovementInput()
+    public override Vector3 GetMovementInput(Character target, Transform transform)
     {    
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -13,7 +13,7 @@ public class PlayerInput : InputType
         return direction;
     }
 
-    public override Vector3 LookAtInput(Transform transform, Camera cam = null)
+    public override Vector3 LookAtInput(Character target, Transform transform, Camera cam)
     {
         if (cam)
         {
@@ -24,12 +24,9 @@ public class PlayerInput : InputType
         return Vector3.zero;
     }
 
-    public override void ShootInput(FiringMode firingMode, Transform firingPoint, ProjectileType type)
+    public override bool ShootInput(Character target, Transform firingPoint)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            firingMode.Shoot(firingPoint, type);
-        }
+        return Input.GetKeyDown(KeyCode.Mouse0);
     }
 
     #endregion

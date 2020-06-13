@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public event Action<Character> OnDeath;
     public event Action<float, float> OnHealthChanged;
 
+    [Required] public Faction faction;
     public CharacterStats stats;
     public CharacterInput input;
     public CharacterMovement movement;
