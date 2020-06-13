@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36be1f34e237e994785a3a7e8482d909, type: 3}
   m_Name: debug_curr_hp
   m_EditorClassIdentifier: 
-  value: 10
+  value: 5.85
