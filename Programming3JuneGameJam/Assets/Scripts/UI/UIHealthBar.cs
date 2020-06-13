@@ -13,14 +13,14 @@ public class UIHealthBar : MonoBehaviour
 
     [Space(5), Title("Debugging")]
     [SerializeField] private bool isDebugging = false;
-    [SerializeField] private float debugCurrentHp = 10;
-    [SerializeField] private float debugMaxHp = 20;
+    [SerializeField] private SharedFloatValue debugCurrentHp = null;
+    [SerializeField] private SharedFloatValue debugMaxHp = null;
 
     private void Update()
     {
         if (isDebugging)
         {
-            SetValue(debugCurrentHp, debugMaxHp);
+            SetValue(debugCurrentHp.value, debugMaxHp.value);
         }
     }
 

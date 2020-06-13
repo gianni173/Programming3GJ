@@ -127,8 +127,8 @@ MonoBehaviour:
   number: {fileID: 7361761326535891425}
   background: {fileID: 4596914253916333923}
   isDebugging: 0
-  debugCurrentHp: 10
-  debugMaxHp: 20
+  debugCurrentHp: {fileID: 11400000, guid: 0f012a9e7d02fe442b364625d6ce1f45, type: 2}
+  debugMaxHp: {fileID: 11400000, guid: 3714fe457bb18c646944232669148f32, type: 2}
 --- !u!1 &7037203309486680870
 GameObject:
   m_ObjectHideFlags: 0
