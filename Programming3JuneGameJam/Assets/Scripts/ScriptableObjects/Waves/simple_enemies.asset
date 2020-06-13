@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: character_stats
+  m_Script: {fileID: 11500000, guid: 4fcdd4ef3536974489b408fa1fa1cac6, type: 3}
+  m_Name: simple_enemies
   m_EditorClassIdentifier: 
-  basicHP: 0
-  basicAtk: 0
-  basicSpd: 0
+  entitiesSets:
+  - prefab: {fileID: 1967562534818413262, guid: fd167d0737184d84b86ef59e58426048,
+      type: 3}
+    amount: 5

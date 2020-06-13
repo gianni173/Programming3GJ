@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Spawner/Wave", menuName = "new_wave")]
+[CreateAssetMenu(menuName = "Spawner/Wave", fileName = "new_wave")]
 public class Wave : ScriptableObject
 {
     public EntitiesSet[] entitiesSets;
 
+    [System.Serializable]
     public struct EntitiesSet
     {
         public GameObject prefab;

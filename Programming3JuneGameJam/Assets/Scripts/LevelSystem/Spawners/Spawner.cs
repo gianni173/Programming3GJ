@@ -1,8 +1,10 @@
 ﻿using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
@@ -11,19 +13,17 @@ public class Spawner : MonoBehaviour
     [SerializeField] private TriggerDetector[] activators = null;
 
     [Space(5), Title("Spawner Behaviour")]
-    [SerializeField] private float spawnerPulse = 1f;
+    [SerializeField, Tooltip("Spawn after SpawnerPulse time or after all enemies have been killed?")] private bool pulseMode = true;
+    [SerializeField, ShowIf("pulseMode")] private float spawnerPulse = 1f;
     [SerializeField] private Wave[] waves = null;
-    [SerializeField] private BoxCollider2D spawnArea = null;
+    [SerializeField] private BoxCollider spawnArea = null;
     [SerializeField] private Transform entitiesSpawnedContainer = null;
     [SerializeField] private List<Character> entitiesSpawned = new List<Character>();
 
     private bool isActive = false;
     private bool IsActive
     {
-        get
-        {
-            return isActive;
-        }
+        get => isActive;
         set
         {
             if(isActive != value)
@@ -37,6 +37,24 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    private int aliveEntities = 0;
+    private int AliveEntities
+    {
+        get => aliveEntities;
+        set
+        {
+            if (aliveEntities != value)
+            {
+                aliveEntities = value;
+                if (aliveEntities <= 0)
+                {
+                    aliveEntities = 0;
+                    SpawnWave();
+                }
+            }
+        }
+    }
+
     private int currWave = 0;
     private float lastSpawnTime = 0;
 
@@ -44,8 +62,28 @@ public class Spawner : MonoBehaviour
     {
         if (spawnArea)
         {
-            Gizmos.color = Color.red;
+            var prevGizmosColor = Gizmos.color;
+
+            var thisGizmoColor = Color.red;
+            thisGizmoColor.a = isActive ? .4f : .2f;
+            Gizmos.color = thisGizmoColor;
             Gizmos.DrawCube(spawnArea.bounds.center, spawnArea.bounds.size);
+
+            Gizmos.color = prevGizmosColor;
+        }
+        if (activators != null)
+        {
+            var prevGizmosColor = Gizmos.color;
+
+            var thisGizmoColor = Color.red;
+            Gizmos.color = thisGizmoColor;
+
+            foreach (TriggerDetector activator in activators)
+            {
+                Gizmos.DrawLine(spawnArea.bounds.center, activator.transform.position + (Vector3.up * 2f));
+            }
+
+            Gizmos.color = prevGizmosColor;
         }
     }
 
@@ -62,9 +100,12 @@ public class Spawner : MonoBehaviour
     {
         if(IsActive)
         {
-            if(Time.time > lastSpawnTime + spawnerPulse)
+            if (pulseMode)
             {
-                SpawnWave();
+                if (Time.time > lastSpawnTime + spawnerPulse)
+                {
+                    SpawnWave();
+                }
             }
         }
     }
@@ -79,9 +120,10 @@ public class Spawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        lastSpawnTime = Time.time;
         if (waves.Length > currWave)
         {
+            lastSpawnTime = Time.time;
+
             foreach (Wave.EntitiesSet set in waves[currWave].entitiesSets)
             {
                 for (int i = 0; i < set.amount; i++)
@@ -108,8 +150,9 @@ public class Spawner : MonoBehaviour
         var characterPart = newEntity.GetComponent<Character>();
         if(characterPart)
         {
-            //TODO: add death event
+            characterPart.OnDeath += EntityDied;
             entitiesSpawned.Add(characterPart);
+            AliveEntities = entitiesSpawned.Count;
         }
     }
 
@@ -119,5 +162,14 @@ public class Spawner : MonoBehaviour
                                     Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
 
         return randomPos;
+    }
+
+    private void EntityDied(Character character)
+    {
+        if (entitiesSpawned.Contains(character))
+        {
+            entitiesSpawned.Remove(character);
+            AliveEntities = entitiesSpawned.Count;
+        }
     }
 }
