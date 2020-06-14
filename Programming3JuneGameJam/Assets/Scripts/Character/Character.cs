@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     public CharacterInput Input;
     public CharacterMovement Movement;
     public CharacterRage Rage;
+    public CharacterGraphic Graphic;
     public Weapon Weapon;
     public CharacterTargetDetectors CharacterTargetDetectors;
 
@@ -129,6 +130,10 @@ public class Character : MonoBehaviour
                 rageComponent.character = this;
                 rageComponent.stats = Stats.rageStats;
                 Rage = rageComponent;
+            }
+            if (Graphic && Stats.model)
+            {
+                Graphic.SetUpGraphic(Stats);
             }
             Weapon.firingMode = Stats.basicFiringMode ? 
                 Stats.basicFiringMode : Weapon.firingMode;

@@ -24,5 +24,5 @@ public class CharacterStats : ScriptableObject
     public ProjectileType basicProjectileType;
     public ProjectileType basicEnragedProjectileType;
     [Space(5), Title("Graphic Stats")]
-    public string modelName;
+    public GameObject model;
 }
