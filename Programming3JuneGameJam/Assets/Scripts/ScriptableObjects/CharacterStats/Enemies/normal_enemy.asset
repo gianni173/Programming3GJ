@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: base_character_stats
+  m_Name: normal_enemy
   m_EditorClassIdentifier: 
-  hierarchyName: Base
-  basicHP: 50
+  hierarchyName: Normal Enemy
+  basicHP: 25
   attackMultiplier: 1
-  basicSpd: 5
+  basicSpd: 12
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
   rageStats: {fileID: 0}
-  basicInputType: {fileID: 0}
-  basicFaction: {fileID: 0}
+  basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
+  basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
   basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
   basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
     type: 2}

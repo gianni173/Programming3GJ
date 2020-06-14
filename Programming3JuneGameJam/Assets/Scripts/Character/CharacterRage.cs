@@ -10,6 +10,8 @@ public class CharacterRage : MonoBehaviour
 
     [NonSerialized] public Character character = null;
     [NonSerialized] public bool isRaging = false;
+    [NonSerialized] public GameObject rageCircle = null;
+    [NonSerialized] public Animator rageCircleAnim = null;
 
     private float currRageTime = 0f;
 
@@ -18,10 +20,14 @@ public class CharacterRage : MonoBehaviour
         if(isRaging && currRageTime > 0)
         {
             currRageTime -= Time.deltaTime;
-            if(currRageTime <= 0)
+            if (currRageTime <= 3)
             {
-                currRageTime = 0;
-                StopRage();
+                rageCircleAnim.SetBool("IsEnding", true);
+                if (currRageTime <= 0)
+                {
+                    currRageTime = 0;
+                    StopRage();
+                }
             }
         }
     }
@@ -30,7 +36,9 @@ public class CharacterRage : MonoBehaviour
     public void StartRage()
     {
         isRaging = true;
-        character.OnRageChanged?.Invoke(character, isRaging);
+        rageCircle.SetActive(isRaging);
+        rageCircleAnim.SetBool("IsRaging", isRaging);
+        character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
         currRageTime = stats.rageTime;
     }
 
@@ -38,7 +46,9 @@ public class CharacterRage : MonoBehaviour
     private void StopRage()
     {
         isRaging = false;
-        character.OnRageChanged?.Invoke(character, isRaging);
+        rageCircleAnim.SetBool("IsRaging", isRaging);
+        rageCircle.SetActive(isRaging);
+        character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
         if(character.HP / character.Stats.basicHP < stats.normalizedThreshold)
         {
             character.Die();

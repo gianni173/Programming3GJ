@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,11 +16,21 @@ public class CharacterGraphic : MonoBehaviour
     
     #region Methods
 
-    public void SetUpGraphic(CharacterStats stats)
+    public void SetUpGraphic(CharacterStats.ModelKey modelKey)
     {
-        GameObject model = transform.Find(stats.model.name).gameObject;
-            if (model)
-                model.SetActive(true);
+        foreach(Transform child in transform.GetComponentInChildren<Transform>())
+        {
+            if(child.name != gameObject.name)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        var model = transform.Find(modelKey.ToString());
+        if (model)
+        {
+            model.gameObject.SetActive(true);
+        }
     }
 
     public void SetActive(bool isActive)

@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     public event Action<Character> OnDeath;
     public event Action<float, float> OnHealthChanged;
-    public Action<Character, bool> OnRageChanged;
+    public Action<Character, float> OnRageChanged;
 
     public Faction faction;
     public Faction Faction
@@ -58,6 +58,7 @@ public class Character : MonoBehaviour
     }
 
     [SerializeField] private CapsuleCollider hitBox = null;
+    [SerializeField] private GameObject rageCircle = null;
 
     // stats
     private float hp = 0f;
@@ -149,12 +150,14 @@ public class Character : MonoBehaviour
             {
                 var rageComponent = gameObject.AddComponent<CharacterRage>();
                 rageComponent.character = this;
+                rageComponent.rageCircle = rageCircle;
+                rageComponent.rageCircleAnim = rageCircle.GetComponent<Animator>();
                 rageComponent.stats = Stats.rageStats;
                 Rage = rageComponent;
             }
-            if (Graphic && Stats.model)
+            if (Graphic)
             {
-                Graphic.SetUpGraphic(Stats);
+                Graphic.SetUpGraphic(Stats.modelKey);
             }
             Weapon.firingMode = Stats.basicFiringMode ? 
                 Stats.basicFiringMode : Weapon.firingMode;
