@@ -22,5 +22,10 @@ public class CharacterGraphic : MonoBehaviour
                 model.SetActive(true);
     }
 
+    public void SetActive(bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
+
     #endregion
 }

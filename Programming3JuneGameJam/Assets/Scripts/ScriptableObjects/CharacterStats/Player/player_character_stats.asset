@@ -27,3 +27,4 @@ MonoBehaviour:
     type: 2}
   basicEnragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
     type: 2}
+  model: {fileID: 5713565285999287054, guid: 51760c115014b464aa9a86592a452f11, type: 3}

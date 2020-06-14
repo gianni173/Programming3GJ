@@ -52,13 +52,12 @@ public class Character : MonoBehaviour
                 {
                     Rage.enabled = !isDead;
                 };
-                graphicsContainer.SetActive(!isDead);
+                Graphic.SetActive(!isDead);
             }
         }
     }
 
     [SerializeField] private CapsuleCollider hitBox = null;
-    [SerializeField] private GameObject graphicsContainer = null;
 
     // stats
     private float hp = 0f;
