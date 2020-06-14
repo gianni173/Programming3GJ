@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour
     #region Fields
 
     public ProjectileType type;
-    public bool targetIsPlayer;
 
     [NonSerialized] public Faction ownerFaction;
 
