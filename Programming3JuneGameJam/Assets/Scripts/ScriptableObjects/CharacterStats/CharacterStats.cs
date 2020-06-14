@@ -18,4 +18,6 @@ public class CharacterStats : ScriptableObject
     public InputType basicInputType;
     [Space(5), Title("Faction Stats")]
     public Faction basicFaction;
+    [Space(5), Title("Graphic Stats")]
+    public string modelName;
 }
