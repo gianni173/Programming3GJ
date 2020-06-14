@@ -20,7 +20,7 @@ public partial class FollowTarget : MonoBehaviour
         if (target)
         {
             Vector3 newPosition = target.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, newPosition, smoothSpeed * Time.deltaTime);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, newPosition, smoothSpeed * Time.fixedDeltaTime);
             transform.position = smoothedPosition;
         }
     }

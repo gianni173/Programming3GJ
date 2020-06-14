@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: base_enemy_stats
+  m_Name: runner_enemy
   m_EditorClassIdentifier: 
-  hierarchyName: Enemy
-  basicHP: 25
+  hierarchyName: Tank Enemy
+  basicHP: 10
   attackMultiplier: 1
-  basicSpd: 12
+  basicSpd: 14
   speedMultiplier: 1
-  hitBoxHeight: 2
-  hitBoxRadius: 0.75
+  hitBoxHeight: 4
+  hitBoxRadius: 1
   rageStats: {fileID: 0}
   basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
   basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
@@ -26,3 +26,7 @@ MonoBehaviour:
   basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
+  weaponType: 0
+  weaponPrefab: {fileID: 1347048607590356, guid: 7e140394e95da314a9a63645d1c4a08f,
+    type: 3}
+  modelKey: 2

@@ -124,7 +124,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &640143768819136633
@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -451,6 +451,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
         type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: spawnerPulse
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: pulseMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5132803733491825160, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: m_Name
@@ -634,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -675,6 +685,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
         type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: spawnerPulse
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: pulseMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5132803733491825160, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: m_Name
@@ -763,7 +783,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -804,6 +824,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
         type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: spawnerPulse
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: pulseMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5132803733491825160, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: m_Name
@@ -884,6 +914,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corridor01
       objectReference: {fileID: 0}
+    - target: {fileID: 1511851851117741546, guid: 1ba952b42f5f31844ab78919d69e4612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4578217719024244977, guid: 1ba952b42f5f31844ab78919d69e4612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -937,6 +972,11 @@ PrefabInstance:
     - target: {fileID: 4578217719024244977, guid: 1ba952b42f5f31844ab78919d69e4612,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874352998453742333, guid: 1ba952b42f5f31844ab78919d69e4612,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

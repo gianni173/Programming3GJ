@@ -11,9 +11,9 @@ public class Character : MonoBehaviour
 
     public event Action<Character> OnDeath;
     public event Action<float, float> OnHealthChanged;
-    public Action<Character, bool> OnRageChanged;
+    public Action<Character, float> OnRageChanged;
 
-    public Faction faction;
+    [NonSerialized] public Faction faction;
     public Faction Faction
     {
         get => faction;
@@ -29,8 +29,8 @@ public class Character : MonoBehaviour
     public CharacterStats Stats;
     public CharacterInput Input;
     public CharacterMovement Movement;
-    public CharacterRage Rage;
-    public CharacterAnimation animation;
+    [NonSerialized] public CharacterRage Rage;
+    public CharacterAnimation Animation;
     public CharacterGraphic Graphic;
     public Weapon Weapon;
     public CharacterTargetDetectors CharacterTargetDetectors;
@@ -59,6 +59,7 @@ public class Character : MonoBehaviour
     }
 
     [SerializeField] private CapsuleCollider hitBox = null;
+    [SerializeField] private GameObject rageCircle = null;
 
     // stats
     private float hp = 0f;
@@ -150,12 +151,14 @@ public class Character : MonoBehaviour
             {
                 var rageComponent = gameObject.AddComponent<CharacterRage>();
                 rageComponent.character = this;
+                rageComponent.rageCircle = rageCircle;
+                rageComponent.rageCircleAnim = rageCircle.GetComponent<Animator>();
                 rageComponent.stats = Stats.rageStats;
                 Rage = rageComponent;
             }
-            if (Stats.model)
+            if (Graphic)
             {
-                Graphic.SetUpGraphic(Stats);
+                Graphic.SetUpGraphic(Stats.modelKey);
             }
             if (Stats.weaponPrefab)
             {

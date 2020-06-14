@@ -55,10 +55,10 @@ public class UIHealthBar : MonoBehaviour
         background.color = GlobalSettings.Instance.healthColors[numberOfBars].backgroundColor;
     }
 
-    private void SetRageThreshold(Character character, bool isRaging)
+    private void SetRageThreshold(Character character, float normalizedRageTime)
     {
-        rageThreshold.gameObject.SetActive(isRaging);
-        if (isRaging)
+        rageThreshold.gameObject.SetActive(normalizedRageTime > 0);
+        if (normalizedRageTime > 0)
         {
             rageThreshold.anchorMin = new Vector2(character.Rage.stats.normalizedThreshold, 0f);
             rageThreshold.anchorMax = new Vector2(character.Rage.stats.normalizedThreshold, 1f);
@@ -72,6 +72,6 @@ public class UIHealthBar : MonoBehaviour
         SetValue(mainPlayer.HP, mainPlayer.Stats.basicHP);
 
         mainPlayer.OnRageChanged += SetRageThreshold;
-        SetRageThreshold(mainPlayer, false);
+        SetRageThreshold(mainPlayer, 0);
     }
 }

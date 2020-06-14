@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entitiesSets:
   - entityStats: {fileID: 11400000, guid: 5607f6df195b8224e8a55970dfdcd00a, type: 2}
-    amount: 5
+    amount: 3

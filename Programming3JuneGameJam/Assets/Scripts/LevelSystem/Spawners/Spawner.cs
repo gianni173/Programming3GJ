@@ -14,7 +14,8 @@ public class Spawner : MonoBehaviour
 
     [Space(5), Title("Spawner Behaviour")]
     [SerializeField, Tooltip("Spawn after SpawnerPulse time or after all enemies have been killed?")] private bool pulseMode = true;
-    [SerializeField, ShowIf("pulseMode")] private float spawnerPulse = 1f;
+    [SerializeField, ShowIf("pulseMode")] private float spawnerPulse = 20f;
+    [SerializeField, HideIf("pulseMode")] private float spawnerDelay = 5f;
     [SerializeField] private Wave[] waves = null;
     [SerializeField] private BoxCollider spawnArea = null;
     [SerializeField] private Transform entitiesSpawnedContainer = null;
@@ -46,10 +47,10 @@ public class Spawner : MonoBehaviour
             if (aliveEntities != value)
             {
                 aliveEntities = value;
-                if (aliveEntities <= 0)
+                if (aliveEntities <= 0 && !pulseMode)
                 {
                     aliveEntities = 0;
-                    SpawnWave();
+                    StartCoroutine(DelayedSpawnWave(spawnerDelay));
                 }
             }
         }
@@ -116,6 +117,12 @@ public class Spawner : MonoBehaviour
         {
             IsActive = true;
         }
+    }
+
+    private IEnumerator DelayedSpawnWave(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        SpawnWave();
     }
 
     private void SpawnWave()

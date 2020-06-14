@@ -37,9 +37,9 @@ public class CharacterMovement : MonoBehaviour
         {
             transform.position += direction * Time.fixedDeltaTime * character.Spd;
         }
-        if (character.animation)
+        if (character.Animation)
         {
-            character.animation.SetMovementDirection(direction);
+            character.Animation.SetMovementDirection(direction);
         }
     }
     

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5287676641996745164}
   m_Layer: 0
-  m_Name: HeaponHandler
+  m_Name: WeaponHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,7 +711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6146564649807472451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6144718529402976189}
@@ -6524,7 +6524,7 @@ PrefabInstance:
     - target: {fileID: 3805848138393241481, guid: 8cd3d84d9dac7614d95482239a41f6c8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3808456923279120639, guid: 8cd3d84d9dac7614d95482239a41f6c8,
         type: 3}
