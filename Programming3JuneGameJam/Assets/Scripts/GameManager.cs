@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public event Action<Character> OnMainPlayerSpawned;
+
     [SerializeField] private CharacterStats playerStats = default;
 
     private LevelSystem LevelSystem = null;
@@ -28,7 +30,9 @@ public class GameManager : Singleton<GameManager>
         var characterComponent = playerSpawned.GetComponent<Character>();
         characterComponent.InitCharacter(playerStats, GlobalSettings.Instance.playerFaction);
 
-        if(CameraManager)
+        OnMainPlayerSpawned?.Invoke(characterComponent);
+
+        if (CameraManager)
         {
             CameraManager.followSystem.target = playerSpawned.transform;
             CameraManager.followSystem.Snap();

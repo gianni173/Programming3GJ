@@ -7,10 +7,11 @@ public class Weapon : MonoBehaviour
     #region Fields
 
     public Transform firingPoint;
+    public FiringMode firingMode;
+    public ProjectileType projectileType;
+    public ProjectileType enragedProjectileType;
 
     [SerializeField] private Character character = default;
-    [SerializeField] private FiringMode firingMode = default;
-    [SerializeField] private ProjectileType projectileType = default;
 
     private float lastShootTime = 0f;
 
@@ -20,13 +21,29 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        firingMode.Shoot(firingPoint, projectileType, character);
+        if(character.Rage && character.Rage.isRaging)
+        {
+            firingMode.Shoot(firingPoint, enragedProjectileType, character);
+        }
+        else
+        {
+            firingMode.Shoot(firingPoint, projectileType, character);
+        }
         lastShootTime = Time.time;
     }
 
     public bool CanShoot()
     {
-        return lastShootTime + (1 / firingMode.bulletsPerSecond) < Time.time;
+        if (character)
+        {
+            var bps = firingMode.bulletsPerSecond;
+            if(character.Rage && character.Rage.isRaging)
+            {
+                 bps = firingMode.enragedBulletsPerSecond;
+            }
+            return lastShootTime + (1 / bps) < Time.time;
+        }
+        return false;
     }
 
 

@@ -10,7 +10,7 @@ public class Pistol : FiringMode
         var projectile = type.SpawnProjectile(firingPoint.position);
         projectile.damage = type.baseDamage * owner.GetAttackMultiplier();
         projectile.type = type;
-        projectile.ownerFaction = owner.Faction;
+        projectile.owner = owner;
         projectile.SetDirection(firingPoint.forward);
     }
 

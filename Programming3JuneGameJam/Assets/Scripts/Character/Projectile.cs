@@ -9,8 +9,7 @@ public class Projectile : MonoBehaviour
     #region Fields
 
     [NonSerialized] public ProjectileType type;
-
-    [NonSerialized] public Faction ownerFaction;
+    [NonSerialized] public Character owner;
     [NonSerialized] public float damage;
 
     private float currLifeTime = 0f;
@@ -58,9 +57,10 @@ public class Projectile : MonoBehaviour
         if (!hasHit)
         {
             var characterHit = other.GetComponent<Character>();
-            if (characterHit != null && characterHit.Faction.IsEnemy(ownerFaction))
+            if (characterHit != null && characterHit.Faction.IsEnemy(owner.faction))
             {
-                type.ProjectileBehaviour(characterHit, this);
+                var damageInflicted = type.ProjectileBehaviour(characterHit, this);
+                owner.DamageInflicted(damageInflicted);
                 hasHit = true;
                 Despawn();
             }

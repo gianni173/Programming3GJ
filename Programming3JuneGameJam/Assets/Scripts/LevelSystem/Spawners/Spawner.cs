@@ -136,10 +136,10 @@ public class Spawner : MonoBehaviour
             }
 
             currWave++;
-            if(currWave <= waves.Length)
-            {
-                isActive = false;
-            }
+        }
+        if (currWave >= waves.Length)
+        {
+            IsActive = false;
         }
     }
 

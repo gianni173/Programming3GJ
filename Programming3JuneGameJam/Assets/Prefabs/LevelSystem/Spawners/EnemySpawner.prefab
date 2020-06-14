@@ -50,7 +50,7 @@ MonoBehaviour:
   spawnerPulse: 5
   waves: []
   spawnArea: {fileID: 6124850668354276218}
-  entitiesSpawnedContainer: {fileID: 0}
+  entitiesSpawnedContainer: {fileID: 5266726877835125180}
   entitiesSpawned: []
 --- !u!65 &6124850668354276218
 BoxCollider:

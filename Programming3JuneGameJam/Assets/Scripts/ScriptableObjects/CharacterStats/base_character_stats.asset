@@ -17,4 +17,12 @@ MonoBehaviour:
   attackMultiplier: 1
   basicSpd: 5
   speedMultiplier: 1
+  hitBoxHeight: 2
+  hitBoxRadius: 0.75
+  rageStats: {fileID: 0}
   basicInputType: {fileID: 0}
+  basicFaction: {fileID: 0}
+  basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+    type: 2}
+  basicEnragedProjectileType: {fileID: 0}

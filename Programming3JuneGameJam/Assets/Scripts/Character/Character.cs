@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEditor.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -28,9 +29,12 @@ public class Character : MonoBehaviour
     public CharacterInput Input;
     public CharacterMovement Movement;
     public CharacterRage Rage;
+    public Weapon Weapon;
     public CharacterTargetDetectors CharacterTargetDetectors;
 
-    [SerializeField] private CapsuleCollider hitBox;
+    [NonSerialized] public bool isDead = false;
+
+    [SerializeField] private CapsuleCollider hitBox = null;
 
     // stats
     private float hp = 0f;
@@ -41,7 +45,7 @@ public class Character : MonoBehaviour
         {
             if (hp != value)
             {
-                if(value <= 0 && Rage.isRaging)
+                if(Rage && value <= 0 && Rage.isRaging)
                 {
                     value = 1;
                 }
@@ -64,7 +68,7 @@ public class Character : MonoBehaviour
 
     public float GetAttackMultiplier()
     {
-        return Rage.isRaging ? Stats.attackMultiplier * GetStatsMultiplier() : Stats.attackMultiplier;
+        return Stats.attackMultiplier * GetStatsMultiplier();
     }
 
 
@@ -83,7 +87,7 @@ public class Character : MonoBehaviour
 
     public float GetSpeedMultiplier()
     {
-        return Rage.isRaging ? Stats.speedMultiplier * GetStatsMultiplier() : Stats.speedMultiplier;
+        return Stats.speedMultiplier * GetStatsMultiplier();
     }
 
     #endregion
@@ -118,6 +122,19 @@ public class Character : MonoBehaviour
                     CharacterTargetDetectors.SetDetectorsRanges(aiInputType.visionRange, aiInputType.shootingRange);
                 }
             }
+            if (Stats.rageStats)
+            {
+                var rageComponent = gameObject.AddComponent<CharacterRage>();
+                rageComponent.character = this;
+                rageComponent.stats = Stats.rageStats;
+                Rage = rageComponent;
+            }
+            Weapon.firingMode = Stats.basicFiringMode ? 
+                Stats.basicFiringMode : Weapon.firingMode;
+            Weapon.projectileType = Stats.basicProjectileType ? 
+                Stats.basicProjectileType : Weapon.projectileType;
+            Weapon.enragedProjectileType = Stats.basicEnragedProjectileType ? 
+                Stats.basicEnragedProjectileType : Weapon.enragedProjectileType;
         }
 
         if(startingFactionOverride)
@@ -126,26 +143,57 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(float damage)
+    public void DamageInflicted(float damageInflicted)
     {
-        HP -= Rage.isRaging ? (damage / 2) : damage;
+        if(Rage && Rage.isRaging)
+        {
+            HP += damageInflicted * Rage.stats.rageDrainMultiplier;    
+        }
+    }
+
+    public float ReceiveDamage(HitInfos hitInfos)
+    {
+        //Enraged Reduction
+        var damageReceived = hitInfos.damage;
+        if (Rage && Rage.isRaging)
+        {
+            damageReceived *= Rage.stats.damageReceivedModifier;
+            damageReceived *= hitInfos.damageType.multiplierAgainstEnraged;
+        }
+        else
+        {
+            damageReceived *= hitInfos.damageType.multiplierAgainstNotEnraged;
+        }
+        
+        HP -= damageReceived;
+        return damageReceived;
     }
 
     public void Die()
     {
         OnDeath?.Invoke(this);
+        isDead = true;
+
+        Input.enabled = false;
+        Movement.enabled = false;
+        CharacterTargetDetectors.SetDetectorsActive(false);
+        CharacterTargetDetectors.enabled = false;
+        if (Rage)
+        {
+            Rage.enabled = false;
+        };
     }
 
     private float GetStatsMultiplier()
     {
-        if (Rage.isRaging)
+        if (Rage && Rage.isRaging)
         {
-            var currHpMultipler = (hp / Stats.basicHP) + 1;
+            var currHpMultipler = (int)((hp - .001f) / Stats.basicHP) + 1;
             return currHpMultipler > 3 ? currHpMultipler : 3;
         }
         else
         {
-            return (hp / Stats.basicHP) + 1;
+            return (int)((hp - .001f) / Stats.basicHP) + 1;
         }
     }
   

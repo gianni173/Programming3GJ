@@ -15,7 +15,14 @@ MonoBehaviour:
   hierarchyName: Enemy
   basicHP: 25
   attackMultiplier: 1
-  basicSpd: 6
+  basicSpd: 12
   speedMultiplier: 1
+  hitBoxHeight: 2
+  hitBoxRadius: 0.75
+  rageStats: {fileID: 0}
   basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
   basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
+  basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+    type: 2}
+  basicEnragedProjectileType: {fileID: 0}

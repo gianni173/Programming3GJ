@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -430,6 +430,24 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
         type: 2}
@@ -616,7 +634,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -636,6 +654,24 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
         type: 2}
@@ -727,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
@@ -750,6 +786,24 @@ PrefabInstance:
       propertyPath: startsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
+    - target: {fileID: 2036115552830413722, guid: 46e29f8b3bd5833498152ae29b59fe7e,
+        type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c228fdc699e147f4998555dbc7a3b024,
+        type: 2}
     - target: {fileID: 5132803733491825160, guid: 46e29f8b3bd5833498152ae29b59fe7e,
         type: 3}
       propertyPath: m_Name

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae89830ca6f94345bc4ac916c5517b7c, type: 3}
-  m_Name: pistol
+  m_Script: {fileID: 11500000, guid: b67600be483892742bf52dba4b6dd7e0, type: 3}
+  m_Name: (.5x,1.5x)str_vs_rage
   m_EditorClassIdentifier: 
-  bulletsPerSecond: 1
-  enragedBulletsPerSecond: 2
+  multiplierAgainstNotEnraged: 0.5
+  multiplierAgainstEnraged: 1.5
