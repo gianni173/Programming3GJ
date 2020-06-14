@@ -8,9 +8,10 @@ public class Projectile : MonoBehaviour
 {
     #region Fields
 
-    public ProjectileType type;
+    [NonSerialized] public ProjectileType type;
 
     [NonSerialized] public Faction ownerFaction;
+    [NonSerialized] public float damage;
 
     private float currLifeTime = 0f;
     private bool hasHit = false;
@@ -37,7 +38,7 @@ public class Projectile : MonoBehaviour
 
     #region Methods
 
-    public void Push(Vector3 direction)
+    public void SetDirection(Vector3 direction)
     {
         transform.LookAt(transform.position + direction);
     }
@@ -57,9 +58,9 @@ public class Projectile : MonoBehaviour
         if (!hasHit)
         {
             var characterHit = other.GetComponent<Character>();
-            if (characterHit != null && characterHit.faction.IsEnemy(ownerFaction))
+            if (characterHit != null && characterHit.Faction.IsEnemy(ownerFaction))
             {
-                characterHit.HP -= type.damage;
+                type.ProjectileBehaviour(characterHit, this);
                 hasHit = true;
                 Despawn();
             }

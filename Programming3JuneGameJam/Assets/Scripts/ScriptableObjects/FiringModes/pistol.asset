@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae89830ca6f94345bc4ac916c5517b7c, type: 3}
   m_Name: pistol
   m_EditorClassIdentifier: 
+  bulletsPerSecond: 1

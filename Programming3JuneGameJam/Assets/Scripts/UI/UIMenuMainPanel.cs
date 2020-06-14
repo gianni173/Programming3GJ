@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class UIMenuMainPanel : MonoBehaviour
 {
     [Title("Play")]
-    [SerializeField] private UIMenuButton playButton;
-    [SerializeField] private string playScene;
+    [SerializeField] private UIMenuButton playButton = default;
+    [SerializeField] private string playScene = default;
     [Space(5), Title("Quit")]
-    [SerializeField] private UIMenuButton quitButton;
+    [SerializeField] private UIMenuButton quitButton = default;
 
     private void Start()
     {

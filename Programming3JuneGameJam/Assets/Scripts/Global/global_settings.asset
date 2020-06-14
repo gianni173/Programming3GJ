@@ -25,3 +25,7 @@ MonoBehaviour:
     backgroundColor: {r: 0.43271625, g: 0.6415094, b: 0.51569813, a: 1}
   - fillColor: {r: 0, g: 0.39547157, b: 1, a: 1}
     backgroundColor: {r: 0.5896226, g: 0.7872118, b: 1, a: 1}
+  baseCharacterPrefab: {fileID: 3435319643861117313, guid: 1ca2659182dcc6d4ba3059a32420a113,
+    type: 3}
+  playerFaction: {fileID: 11400000, guid: dfb4faceeee8b4749b828673c0d9b634, type: 2}
+  enemyFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}

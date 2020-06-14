@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de71e8512bceb34bbb4c73288e2e274, type: 3}
   m_Name: players
   m_EditorClassIdentifier: 
+  tag: Player
   allyFactions:
   - {fileID: 11400000}
   enemyFactions:

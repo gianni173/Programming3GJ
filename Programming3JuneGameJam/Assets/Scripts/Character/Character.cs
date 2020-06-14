@@ -11,10 +11,26 @@ public class Character : MonoBehaviour
     public event Action<Character> OnDeath;
     public event Action<float, float> OnHealthChanged;
 
-    [Required] public Faction faction;
-    public CharacterStats stats;
-    public CharacterInput input;
-    public CharacterMovement movement;
+    public Faction faction;
+    public Faction Faction
+    {
+        get => faction;
+        set
+        {
+            if(faction != value)
+            {
+                faction = value;
+                ChangedFaction();
+            }
+        }
+    }
+    public CharacterStats Stats;
+    public CharacterInput Input;
+    public CharacterMovement Movement;
+    public CharacterRage Rage;
+    public CharacterTargetDetectors CharacterTargetDetectors;
+
+    [SerializeField] private CapsuleCollider hitBox;
 
     // stats
     private float hp = 0f;
@@ -25,33 +41,37 @@ public class Character : MonoBehaviour
         {
             if (hp != value)
             {
-                hp = value;
-                OnHealthChanged?.Invoke(hp, stats.basicHP);
-                if(hp < 0)
+                if(value <= 0 && Rage.isRaging)
                 {
-                    OnDeath?.Invoke(this);
+                    value = 1;
+                }
+                hp = value;
+                OnHealthChanged?.Invoke(hp, Stats.basicHP);
+                if(hp <= 0)
+                {
+                    if (!Rage)
+                    {
+                        Die();
+                    }
+                    else
+                    {
+                        Rage.StartRage();
+                    }
                 }
             }
         }
     }
 
-    private float atk = 0f;
-    public float Atk 
+    public float GetAttackMultiplier()
     {
-        get => atk;
-        set 
-        {
-            if(atk != value)
-            {
-                atk = value;
-            }
-        }
+        return Rage.isRaging ? Stats.attackMultiplier * GetStatsMultiplier() : Stats.attackMultiplier;
     }
+
 
     private float spd = 0f;
     public float Spd
     {
-        get => spd;
+        get => spd * GetSpeedMultiplier();
         set
         {
             if (spd != value)
@@ -61,25 +81,77 @@ public class Character : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region UnityCallbacks
-
-    private void Start()
+    public float GetSpeedMultiplier()
     {
-        InitCharacter();
+        return Rage.isRaging ? Stats.speedMultiplier * GetStatsMultiplier() : Stats.speedMultiplier;
     }
 
     #endregion
     
     #region Methods
 
-    public void InitCharacter()
+    public void InitCharacter(CharacterStats startingStatsOverride = null, Faction startingFactionOverride = null)
     {
-        // set stats
-        HP = stats.basicHP;
-        Atk = stats.basicAtk;
-        Spd = stats.basicSpd;
+        if (startingStatsOverride)
+        {
+            Stats = startingStatsOverride;
+        }
+        if (Stats)
+        {
+            gameObject.name = Stats.hierarchyName + " Character";
+            if(Stats.basicFaction)
+            {
+                Faction = Stats.basicFaction;
+            }
+            HP = Stats.basicHP;
+            Spd = Stats.basicSpd;
+            hitBox.height = Stats.hitBoxHeight;
+            hitBox.center = new Vector3(0, hitBox.height / 2, 0);
+            hitBox.radius = Stats.hitBoxRadius;
+            if (Stats.basicInputType)
+            {
+                Input.inputType = Stats.basicInputType;
+                var aiInputType = Stats.basicInputType as AIInput;
+                CharacterTargetDetectors.SetDetectorsActive(aiInputType != null);
+                if (aiInputType != null)
+                {
+                    CharacterTargetDetectors.SetDetectorsRanges(aiInputType.visionRange, aiInputType.shootingRange);
+                }
+            }
+        }
+
+        if(startingFactionOverride)
+        {
+            Faction = startingFactionOverride;
+        }
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        HP -= Rage.isRaging ? (damage / 2) : damage;
+    }
+
+    public void Die()
+    {
+        OnDeath?.Invoke(this);
+    }
+
+    private float GetStatsMultiplier()
+    {
+        if (Rage.isRaging)
+        {
+            var currHpMultipler = (hp / Stats.basicHP) + 1;
+            return currHpMultipler > 3 ? currHpMultipler : 3;
+        }
+        else
+        {
+            return (hp / Stats.basicHP) + 1;
+        }
+    }
+  
+    private void ChangedFaction()
+    {
+        gameObject.tag = Faction.tag;
     }
 
     #endregion

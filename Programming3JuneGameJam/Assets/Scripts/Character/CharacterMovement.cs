@@ -25,11 +25,18 @@ public class CharacterMovement : MonoBehaviour
 
     #region Methods
 
-    public void Move(Vector3 direction)
+    public void Move(Vector3 direction, bool isLocal)
     {
-        var rightMovement = direction.x * cameraRight;
-        var forwardMovement = direction.z * cameraForward;
-        transform.position += (rightMovement + forwardMovement).normalized * Time.fixedDeltaTime * character.Spd;
+        if (!isLocal)
+        {
+            var rightMovement = direction.x * cameraRight;
+            var forwardMovement = direction.z * cameraForward;
+            transform.position += (rightMovement + forwardMovement).normalized * Time.fixedDeltaTime * character.Spd;
+        }
+        else
+        {
+            transform.position += direction * Time.fixedDeltaTime * character.Spd;
+        }
     }
     
     public void LookAt(Vector3 target)

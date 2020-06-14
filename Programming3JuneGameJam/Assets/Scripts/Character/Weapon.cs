@@ -8,9 +8,9 @@ public class Weapon : MonoBehaviour
 
     public Transform firingPoint;
 
-    [SerializeField] private Character character;
-    [SerializeField] private FiringMode firingMode;
-    [SerializeField] private ProjectileType projectileType;
+    [SerializeField] private Character character = default;
+    [SerializeField] private FiringMode firingMode = default;
+    [SerializeField] private ProjectileType projectileType = default;
 
     private float lastShootTime = 0f;
 
@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        firingMode.Shoot(firingPoint, projectileType, character.faction);
+        firingMode.Shoot(firingPoint, projectileType, character);
         lastShootTime = Time.time;
     }
 

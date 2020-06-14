@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1985495905178618722}
   - component: {fileID: 3800782576188831995}
   - component: {fileID: 7958978004774920164}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 9038905186537397303}
   - component: {fileID: 6160451931782869971}
   - component: {fileID: 135823970514989505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 921865575027666927}
   - component: {fileID: 7872882455187879038}
   - component: {fileID: 2810536571392514822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 6839881789716579155}
   - component: {fileID: 322878909512767602}
   - component: {fileID: 7857448527775283175}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 2462709925770756251}
   - component: {fileID: 3133545378218795918}
   - component: {fileID: 2072901453171377720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 2065030127997206285}
   - component: {fileID: 2233227918488830287}
   - component: {fileID: 8060261803449069382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 4744756893283185456}
   - component: {fileID: 1818508110471033469}
   - component: {fileID: 6813911940764187484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 4329895886317810115}
   - component: {fileID: 18391842667355302}
   - component: {fileID: 2009946801989931681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 4058934558631292623}
   - component: {fileID: 3044207456286709131}
   - component: {fileID: 8036365478677994746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)LongWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 5961558257380183915}
   - component: {fileID: 4114163604845114403}
   - component: {fileID: 4160096615086242719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)LongWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 687947941421069342}
   - component: {fileID: 4577802541133534313}
   - component: {fileID: 5001301170669224349}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 4510463357540767123}
   - component: {fileID: 5309361390938366398}
   - component: {fileID: 8538822743072138202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 3460933680150131513}
   - component: {fileID: 7726315737747222527}
   - component: {fileID: 5170751461271945652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 8720415057792700386}
   - component: {fileID: 3914189640727301726}
   - component: {fileID: 4602660702838762243}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1455,7 +1455,7 @@ GameObject:
   - component: {fileID: 3768007443681465197}
   - component: {fileID: 5298151798034703693}
   - component: {fileID: 3380240326893898272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 701994095690155054}
   - component: {fileID: 7934767095768483259}
   - component: {fileID: 4627959025138406891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: (NW)Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    
+    public Transform spawnPoint;
+    public Transform charactersContainer;
 }

@@ -6,10 +6,11 @@ public class CharacterInput : MonoBehaviour
 {
     #region Fields
 
+    public InputType inputType = null;
+
     [NonSerialized] public Character closestTarget;
 
     [SerializeField] private Character character = null;
-    [SerializeField, Required] private InputType inputType = null;
     [SerializeField] private Weapon weapon = null;
 
     private Camera cam;
@@ -56,7 +57,7 @@ public class CharacterInput : MonoBehaviour
     {
         if (inputType)
         {
-            character.movement.LookAt(inputType.LookAtInput(closestTarget, transform, cam));
+            character.Movement.LookAt(inputType.LookAtInput(closestTarget, transform, cam));
             if(weapon.CanShoot() && inputType.ShootInput(closestTarget, weapon.firingPoint))
             {
                 weapon.Shoot();
@@ -68,7 +69,7 @@ public class CharacterInput : MonoBehaviour
     {
         if (inputType)
         {
-            character.movement.Move(inputType.GetMovementInput(closestTarget, transform));
+            character.Movement.Move(inputType.GetMovementInput(closestTarget, transform), inputType as AIInput != null);
         }
     }
 

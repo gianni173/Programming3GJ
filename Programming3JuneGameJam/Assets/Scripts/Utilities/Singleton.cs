@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T instance;
+    public static T Instance;
 
     public virtual void Awake()
     {
-        if (!instance)
+        if (!Instance)
         {
-            instance = this as T;
+            Instance = this as T;
         }
         else
         {

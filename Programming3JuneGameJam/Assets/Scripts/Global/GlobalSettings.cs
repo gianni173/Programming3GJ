@@ -13,4 +13,8 @@ public class GlobalSettings : SingletonScriptable<GlobalSettings>
     }
 
     public SliderColors[] healthColors = null;
+
+    public GameObject baseCharacterPrefab = null;
+    public Faction playerFaction = null;
+    public Faction enemyFaction = null;
 }

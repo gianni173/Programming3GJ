@@ -128,9 +128,9 @@ public class Spawner : MonoBehaviour
             {
                 for (int i = 0; i < set.amount; i++)
                 {
-                    if (set.prefab)
+                    if (set.entityStats)
                     {
-                        SpawnEntity(set.prefab, GetRandomPosInSpawnArea());
+                        SpawnEntity(set.entityStats, GetRandomPosInSpawnArea());
                     }
                 }
             }
@@ -143,13 +143,14 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnEntity(GameObject prefab, Vector3 position)
+    private void SpawnEntity(CharacterStats stats, Vector3 position)
     {
-        var newEntity = Instantiate(prefab, position, Quaternion.identity, entitiesSpawnedContainer);
+        var newEntity = Instantiate(GlobalSettings.Instance.baseCharacterPrefab, position, Quaternion.identity, entitiesSpawnedContainer);
         newEntity.transform.Rotate(Vector3.up, Random.Range(0f, 360f));
         var characterPart = newEntity.GetComponent<Character>();
         if(characterPart)
         {
+            characterPart.InitCharacter(stats, GlobalSettings.Instance.enemyFaction);
             characterPart.OnDeath += EntityDied;
             entitiesSpawned.Add(characterPart);
             AliveEntities = entitiesSpawned.Count;

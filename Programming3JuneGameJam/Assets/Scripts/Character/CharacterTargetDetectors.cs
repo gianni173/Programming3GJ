@@ -27,10 +27,18 @@ public class CharacterTargetDetectors : MonoBehaviour
         shootingRangeCollider.gameObject.SetActive(value);
     }
 
+    [Button("Set Detectors Ranges")]
+    public void SetDetectorsRanges(float visionRange, float shootingRange)
+    {
+        visionRangeCollider.GetComponent<SphereCollider>().radius = visionRange;
+        shootingRangeCollider.GetComponent<SphereCollider>().radius = shootingRange;
+    }
+
     private void EnteredInVisionRange(Collider collidedObject)
     {
         var collidedCharacter = collidedObject.gameObject.GetComponent<Character>();
-        if (collidedCharacter.faction.IsEnemy(character.faction))
+        if (character.Faction && collidedCharacter.Faction && 
+            collidedCharacter.Faction.IsEnemy(character.Faction))
         {
             inVisionRangeCharacters.Add(collidedCharacter);
             UpdateClosestCharacter();
@@ -40,7 +48,8 @@ public class CharacterTargetDetectors : MonoBehaviour
     private void EnteredInShootingRange(Collider collidedObject)
     {
         var collidedCharacter = collidedObject.gameObject.GetComponent<Character>();
-        if (collidedCharacter.faction.IsEnemy(character.faction))
+        if (character.Faction && collidedCharacter.Faction && 
+            collidedCharacter.Faction.IsEnemy(character.Faction))
         {
             inShootingRangeCharacters.Add(collidedCharacter);
             UpdateClosestCharacter();
@@ -50,7 +59,8 @@ public class CharacterTargetDetectors : MonoBehaviour
     private void ExitFromVisionRange(Collider collidedObject)
     {
         var collidedCharacter = collidedObject.gameObject.GetComponent<Character>();
-        if (collidedCharacter.faction.IsEnemy(character.faction))
+        if (character.Faction && collidedCharacter.Faction && 
+            collidedCharacter.Faction.IsEnemy(character.Faction))
         {
             if(inVisionRangeCharacters.Contains(collidedCharacter))
             {
@@ -63,7 +73,8 @@ public class CharacterTargetDetectors : MonoBehaviour
     private void ExitFromShootingRange(Collider collidedObject)
     {
         var collidedCharacter = collidedObject.gameObject.GetComponent<Character>();
-        if (collidedCharacter.faction.IsEnemy(character.faction))
+        if (character.Faction && collidedCharacter.Faction && 
+            collidedCharacter.Faction.IsEnemy(character.Faction))
         {
             if (inShootingRangeCharacters.Contains(collidedCharacter))
             {
@@ -105,6 +116,6 @@ public class CharacterTargetDetectors : MonoBehaviour
                 }
             }
         }
-        character.input.closestTarget = closestChar;
+        character.Input.closestTarget = closestChar;
     }
 }

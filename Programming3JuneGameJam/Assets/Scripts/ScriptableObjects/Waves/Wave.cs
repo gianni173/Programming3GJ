@@ -11,7 +11,7 @@ public class Wave : ScriptableObject
     [System.Serializable]
     public struct EntitiesSet
     {
-        public GameObject prefab;
+        public CharacterStats entityStats;
         public int amount;
     }
 }

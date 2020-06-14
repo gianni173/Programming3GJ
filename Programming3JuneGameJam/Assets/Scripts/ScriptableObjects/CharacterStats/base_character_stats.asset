@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
   m_Name: base_character_stats
   m_EditorClassIdentifier: 
-  basicHP: 100
-  basicAtk: 10
-  basicSpd: 10
+  hierarchyName: Base
+  basicHP: 50
+  attackMultiplier: 1
+  basicSpd: 5
+  speedMultiplier: 1
+  basicInputType: {fileID: 0}
