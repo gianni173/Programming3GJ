@@ -15,8 +15,9 @@ public class Character : MonoBehaviour
     public CharacterStats stats;
     public CharacterInput input;
     public CharacterMovement movement;
-    
+
     // stats
+    private float hp = 0f;
     public float HP 
     { 
         get => hp;
@@ -33,15 +34,35 @@ public class Character : MonoBehaviour
             }
         }
     }
-    public int Atk { get => atk; set => atk = value; }
-    public int Spd { get => spd; set => spd = value; }
 
-    private float hp;
-    private int atk;
-    private int spd;
-    
+    private float atk = 0f;
+    public float Atk 
+    {
+        get => atk;
+        set 
+        {
+            if(atk != value)
+            {
+                atk = value;
+            }
+        }
+    }
+
+    private float spd = 0f;
+    public float Spd
+    {
+        get => spd;
+        set
+        {
+            if (spd != value)
+            {
+                spd = value;
+            }
+        }
+    }
+
     #endregion
-    
+
     #region UnityCallbacks
 
     private void Start()

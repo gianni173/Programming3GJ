@@ -40,23 +40,35 @@ public class CharacterInput : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
+        GetUpdateTimeInput();
+    }
+
+    private void FixedUpdate()
+    {
+        GetFixedTimeInput();
     }
 
     #endregion
 
     #region Methods
 
-    private void GetInput()
+    private void GetUpdateTimeInput()
     {
         if (inputType)
         {
-            character.movement.Move(inputType.GetMovementInput(closestTarget, transform));
             character.movement.LookAt(inputType.LookAtInput(closestTarget, transform, cam));
             if(weapon.CanShoot() && inputType.ShootInput(closestTarget, weapon.firingPoint))
             {
                 weapon.Shoot();
             }
+        }
+    }
+
+    private void GetFixedTimeInput()
+    {
+        if (inputType)
+        {
+            character.movement.Move(inputType.GetMovementInput(closestTarget, transform));
         }
     }
 

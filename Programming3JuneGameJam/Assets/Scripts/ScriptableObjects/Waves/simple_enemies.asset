@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: simple_enemies
   m_EditorClassIdentifier: 
   entitiesSets:
-  - prefab: {fileID: 1967562534818413262, guid: fd167d0737184d84b86ef59e58426048,
+  - prefab: {fileID: 6381396810645557661, guid: 27037f1f6b092c34bbcafa2f4d1f18f0,
       type: 3}
     amount: 5

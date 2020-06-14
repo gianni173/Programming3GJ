@@ -6,6 +6,6 @@ using UnityEngine;
 public class CharacterStats : ScriptableObject
 {
     public float basicHP;
-    public int basicAtk;
-    public int basicSpd;
+    public float basicAtk;
+    public float basicSpd;
 }
