@@ -30,6 +30,7 @@ public class CharacterRage : MonoBehaviour
     public void StartRage()
     {
         isRaging = true;
+        character.OnRageChanged?.Invoke(character, isRaging);
         currRageTime = stats.rageTime;
     }
 
@@ -37,6 +38,7 @@ public class CharacterRage : MonoBehaviour
     private void StopRage()
     {
         isRaging = false;
+        character.OnRageChanged?.Invoke(character, isRaging);
         if(character.HP / character.Stats.basicHP < stats.normalizedThreshold)
         {
             character.Die();

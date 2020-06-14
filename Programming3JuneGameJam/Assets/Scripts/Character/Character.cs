@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 
     public event Action<Character> OnDeath;
     public event Action<float, float> OnHealthChanged;
+    public Action<Character, bool> OnRageChanged;
 
     public Faction faction;
     public Faction Faction
@@ -196,7 +197,7 @@ public class Character : MonoBehaviour
             return (int)((hp - .001f) / Stats.basicHP) + 1;
         }
     }
-  
+
     private void ChangedFaction()
     {
         gameObject.tag = Faction.tag;
