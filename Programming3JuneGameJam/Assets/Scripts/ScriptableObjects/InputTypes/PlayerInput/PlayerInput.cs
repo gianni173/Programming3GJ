@@ -17,11 +17,17 @@ public class PlayerInput : InputType
     {
         if (cam)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            Vector3 pos = ray.GetPoint(Vector3.Distance(cam.transform.position, transform.position));
-            return new Vector3(pos.x, transform.position.y, pos.z);
+            Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
+            if(Physics.Raycast (camRay, out hit, Mathf.Infinity))
+            {
+                Vector3 playerToMouse = hit.point - transform.position;
+                playerToMouse.y = transform.position.y;
+                return playerToMouse;
+            }
+            return transform.forward;
         }
-        return Vector3.zero;
+        return transform.forward;
     }
 
     public override bool ShootInput(Character target, Transform firingPoint)
