@@ -24,7 +24,9 @@ public class CharacterGraphic : MonoBehaviour
 
     public void SetWeapon(Character character)
     {
-        var instance = Instantiate(character.Stats.weaponPrefab, Vector3.zero, Quaternion.identity, weaponHandler);
+        var instance = Instantiate(character.Stats.weaponPrefab, weaponHandler);
+        instance.transform.localPosition = Vector3.zero;
+        instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
         character.animation.SetWeaponType(character.Stats.weaponType);
     }
 

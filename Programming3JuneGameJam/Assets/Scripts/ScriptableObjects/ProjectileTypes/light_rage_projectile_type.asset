@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5df303aa345c0040a0dfec5f170e4d2, type: 3}
-  m_Name: base_rage_projectile_type 1
+  m_Name: light_rage_projectile_type
   m_EditorClassIdentifier: 
-  prefab: {fileID: 345054468480115704, guid: c95d960cc4ca9ff479fe9f526b07743e, type: 3}
+  prefab: {fileID: 7457472198915622296, guid: cd6036fb9e7796445b99c7445ac40cf3, type: 3}
   speed: 20
   baseDamage: 10
   damageType: {fileID: 11400000, guid: 79606f5aac4a0914e84eeb9448ad778d, type: 2}
