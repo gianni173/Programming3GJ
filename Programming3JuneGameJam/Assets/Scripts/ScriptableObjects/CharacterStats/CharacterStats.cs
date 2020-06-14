@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "character_stats", menuName = "Character/Stats")]
 public class CharacterStats : ScriptableObject
 {
+    public enum WeaponType {Light, Normal, Heavy}
+    
     [Title("Character Name")]
     public string hierarchyName = "Base";
     [Space(5), Title("Combat Stats")]

@@ -37,6 +37,10 @@ public class CharacterMovement : MonoBehaviour
         {
             transform.position += direction * Time.fixedDeltaTime * character.Spd;
         }
+        if (character.animation)
+        {
+            character.animation.SetMovementDirection(direction);
+        }
     }
     
     public void LookAt(Vector3 target)
