@@ -23,4 +23,6 @@ public class CharacterStats : ScriptableObject
     public FiringMode basicFiringMode;
     public ProjectileType basicProjectileType;
     public ProjectileType basicEnragedProjectileType;
+    [Space(5), Title("Graphic Stats")]
+    public string modelName;
 }
