@@ -34,9 +34,31 @@ public class Character : MonoBehaviour
     public Weapon Weapon;
     public CharacterTargetDetectors CharacterTargetDetectors;
 
-    [NonSerialized] public bool isDead = false;
+    private bool isDead = false;
+    public bool IsDead
+    {
+        get => isDead;
+        set
+        {
+            if (isDead != value)
+            {
+                isDead = value;
+                Input.enabled = !isDead;
+                Movement.enabled = !isDead;
+                CharacterTargetDetectors.SetDetectorsActive(!isDead);
+                CharacterTargetDetectors.enabled = !isDead;
+                hitBox.enabled = !isDead;
+                if (Rage)
+                {
+                    Rage.enabled = !isDead;
+                };
+                graphicsContainer.SetActive(!isDead);
+            }
+        }
+    }
 
     [SerializeField] private CapsuleCollider hitBox = null;
+    [SerializeField] private GameObject graphicsContainer = null;
 
     // stats
     private float hp = 0f;
@@ -178,16 +200,7 @@ public class Character : MonoBehaviour
     public void Die()
     {
         OnDeath?.Invoke(this);
-        isDead = true;
-
-        Input.enabled = false;
-        Movement.enabled = false;
-        CharacterTargetDetectors.SetDetectorsActive(false);
-        CharacterTargetDetectors.enabled = false;
-        if (Rage)
-        {
-            Rage.enabled = false;
-        };
+        IsDead = true;
     }
 
     private float GetStatsMultiplier()

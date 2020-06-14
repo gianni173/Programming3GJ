@@ -10,6 +10,7 @@ public class UIHealthBar : MonoBehaviour
     [SerializeField] private Slider slider = null;
     [SerializeField] private Image fill = null;
     [SerializeField] private Image background = null;
+    [SerializeField] private RectTransform rageThreshold = null;
 
     [Space(5), Title("Debugging")]
     [SerializeField] private bool isDebugging = false;
@@ -54,9 +55,23 @@ public class UIHealthBar : MonoBehaviour
         background.color = GlobalSettings.Instance.healthColors[numberOfBars].backgroundColor;
     }
 
+    private void SetRageThreshold(Character character, bool isRaging)
+    {
+        rageThreshold.gameObject.SetActive(isRaging);
+        if (isRaging)
+        {
+            rageThreshold.anchorMin = new Vector2(character.Rage.stats.normalizedThreshold, 0f);
+            rageThreshold.anchorMax = new Vector2(character.Rage.stats.normalizedThreshold, 1f);
+            rageThreshold.anchoredPosition = Vector2.zero;
+        }
+    }
+
     private void LinkHealthBar(Character mainPlayer)
     {
         mainPlayer.OnHealthChanged += SetValue;
         SetValue(mainPlayer.HP, mainPlayer.Stats.basicHP);
+
+        mainPlayer.OnRageChanged += SetRageThreshold;
+        SetRageThreshold(mainPlayer, false);
     }
 }
