@@ -14,8 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hierarchyName: Player
   basicHP: 100
-  attackMultiplier: 1
-  basicSpd: 10
-  speedMultiplier: 1
+  attackMultiplier: 0.5
+  basicSpd: 20
+  speedMultiplier: 0.5
+  hitBoxHeight: 2
+  hitBoxRadius: 0.75
+  rageStats: {fileID: 11400000, guid: b0daa8c0a4a4dc34c982d7cf900f4492, type: 2}
   basicInputType: {fileID: 11400000, guid: 6596387dc4d19c9498f325110c4675b6, type: 2}
   basicFaction: {fileID: 11400000, guid: dfb4faceeee8b4749b828673c0d9b634, type: 2}
+  basicFiringMode: {fileID: 11400000, guid: 76bbbde5d9fb3a34e95fcbd921fd82da, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+    type: 2}
+  basicEnragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
+    type: 2}

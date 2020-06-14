@@ -11,8 +11,15 @@ public class BaseProjectileType : ProjectileType
         return instance.GetComponent<Projectile>();
     }
 
-    public override void ProjectileBehaviour(Character characterHit, Projectile projectile)
+    public override float ProjectileBehaviour(Character characterHit, Projectile projectile)
     {
-        characterHit.ReceiveDamage(projectile.damage);
+        var actualDamageInflicted = characterHit.ReceiveDamage(
+                                                    new HitInfos
+                                                    {
+                                                        damage = projectile.damage,
+                                                        damageType = projectile.type.damageType,
+                                                        isEnragedDamage = projectile.type.isEnraged,
+                                                    });
+        return actualDamageInflicted;
     }
 }

@@ -14,8 +14,13 @@ public class CharacterStats : ScriptableObject
     public float speedMultiplier = 0f;
     public float hitBoxHeight = 2f;
     public float hitBoxRadius = .75f;
+    public RageStats rageStats = null;
     [Space(5), Title("Input Stats")]
     public InputType basicInputType;
     [Space(5), Title("Faction Stats")]
     public Faction basicFaction;
+    [Space(5), Title("Faction Stats")]
+    public FiringMode basicFiringMode;
+    public ProjectileType basicProjectileType;
+    public ProjectileType basicEnragedProjectileType;
 }

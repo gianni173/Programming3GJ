@@ -34,7 +34,7 @@ public class PlayerInput : InputType
 
     public override bool ShootInput(Character target, Transform firingPoint)
     {
-        return Input.GetKeyDown(KeyCode.Mouse0);
+        return Input.GetKey(KeyCode.Mouse0);
     }
 
     #endregion

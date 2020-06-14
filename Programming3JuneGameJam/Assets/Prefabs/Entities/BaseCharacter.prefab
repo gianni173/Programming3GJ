@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 3435319643861117318}
   - component: {fileID: 3435319643861117319}
   - component: {fileID: 3435319643861117312}
-  - component: {fileID: 5801437633964084699}
   - component: {fileID: 3456700061127672731}
   - component: {fileID: 1649386575929584303}
   m_Layer: 0
@@ -152,7 +151,8 @@ MonoBehaviour:
   Stats: {fileID: 11400000, guid: 799c70efaae4e224b96b6c4da599f5de, type: 2}
   Input: {fileID: 3435319643861117319}
   Movement: {fileID: 3435319643861117312}
-  Rage: {fileID: 5801437633964084699}
+  Rage: {fileID: 0}
+  Weapon: {fileID: 7012208942926349265}
   CharacterTargetDetectors: {fileID: 6330752476543992915}
   hitBox: {fileID: 1649386575929584303}
 --- !u!114 &3435319643861117319
@@ -184,19 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphics: {fileID: 3435319642854531769}
   character: {fileID: 3435319643861117318}
---- !u!114 &5801437633964084699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3435319643861117313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae895945dcfb6b41b3e72e252283a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRaging: 0
 --- !u!54 &3456700061127672731
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -558,6 +545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingPoint: {fileID: 5180410870166138303}
-  character: {fileID: 3435319643861117318}
   firingMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
   projectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57, type: 2}
+  enragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
+    type: 2}
+  character: {fileID: 3435319643861117318}

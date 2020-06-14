@@ -9,7 +9,9 @@ public abstract class ProjectileType : ScriptableObject
     public GameObject prefab;
     public float speed = 20f;
     public float baseDamage = 10f;
+    public DamageType damageType = null;
     public float lifeTime = 5f;
+    public bool isEnraged = false;
 
     #endregion
 
@@ -17,7 +19,7 @@ public abstract class ProjectileType : ScriptableObject
 
     public abstract Projectile SpawnProjectile(Vector3 spawnPoint);
 
-    public abstract void ProjectileBehaviour(Character characterHit, Projectile projectile);
+    public abstract float ProjectileBehaviour(Character characterHit, Projectile projectile);
 
     #endregion
 }

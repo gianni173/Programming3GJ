@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4596914254366099279}
   - component: {fileID: 4596914254366099276}
   m_Layer: 5
-  m_Name: DeathGauge
+  m_Name: RageGauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
