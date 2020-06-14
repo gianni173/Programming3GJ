@@ -143,20 +143,20 @@ AvatarMask:
   - m_Path: Root/Hips/UpperLeg_L
     m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_L/LowerLeg_L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L/Ball_L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_L/LowerLeg_L/Ankle_L/Ball_L/Toes_L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_R
     m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_R/LowerLeg_R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R/Ball_R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Root/Hips/UpperLeg_R/LowerLeg_R/Ankle_R/Ball_R/Toes_R
-    m_Weight: 1
+    m_Weight: 0
