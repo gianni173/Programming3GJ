@@ -8,10 +8,8 @@ public class CharacterAnimation : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] 
-    private Character character;
-    [Required, SerializeField] 
-    private Animator animator;
+    [SerializeField] private Character character = null;
+    [Required, SerializeField] private Animator animator = null;
 
     private const string PosXParam = "PosX";
     private const string PosYParam = "PosY";

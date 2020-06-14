@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     public event Action<float, float> OnHealthChanged;
     public Action<Character, float> OnRageChanged;
 
-    public Faction faction;
+    [NonSerialized] public Faction faction;
     public Faction Faction
     {
         get => faction;
@@ -29,8 +29,8 @@ public class Character : MonoBehaviour
     public CharacterStats Stats;
     public CharacterInput Input;
     public CharacterMovement Movement;
-    public CharacterRage Rage;
-    public CharacterAnimation animation;
+    [NonSerialized] public CharacterRage Rage;
+    public CharacterAnimation Animation;
     public CharacterGraphic Graphic;
     public Weapon Weapon;
     public CharacterTargetDetectors CharacterTargetDetectors;

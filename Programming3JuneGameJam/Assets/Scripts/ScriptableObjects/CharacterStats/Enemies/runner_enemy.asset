@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: runner_enemy
   m_EditorClassIdentifier: 
   hierarchyName: Tank Enemy
-  basicHP: 25
+  basicHP: 10
   attackMultiplier: 1
-  basicSpd: 12
+  basicSpd: 14
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
@@ -26,4 +26,7 @@ MonoBehaviour:
   basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
+  weaponType: 0
+  weaponPrefab: {fileID: 1347048607590356, guid: 7e140394e95da314a9a63645d1c4a08f,
+    type: 3}
   modelKey: 2

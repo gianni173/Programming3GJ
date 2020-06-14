@@ -15,7 +15,7 @@ MonoBehaviour:
   hierarchyName: Normal Enemy
   basicHP: 25
   attackMultiplier: 1
-  basicSpd: 12
+  basicSpd: 8
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
@@ -26,4 +26,6 @@ MonoBehaviour:
   basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
+  weaponType: 1
+  weaponPrefab: {fileID: 100000, guid: 41aca4baa18f7cb4b8119f84face57d9, type: 3}
   modelKey: 1

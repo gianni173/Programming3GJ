@@ -6,8 +6,7 @@ public class CharacterInput : MonoBehaviour
 {
     #region Fields
 
-    public InputType inputType = null;
-
+    [NonSerialized] public InputType inputType = null;
     [NonSerialized] public Character closestTarget;
 
     [SerializeField] private Character character = null;

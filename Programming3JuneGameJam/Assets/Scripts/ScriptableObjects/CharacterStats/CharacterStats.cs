@@ -26,6 +26,8 @@ public class CharacterStats : ScriptableObject
     public ProjectileType basicProjectileType;
     public ProjectileType basicEnragedProjectileType;
     [Space(5), Title("Graphic Stats")]
+    public WeaponType weaponType = WeaponType.Light;
+    public GameObject weaponPrefab;
     public ModelKey modelKey = ModelKey.None;
 
     public enum ModelKey
