@@ -34,11 +34,10 @@ public class CharacterMovement : MonoBehaviour
     
     public void LookAt(Vector3 target)
     {
-        if (target == Vector3.zero)
+        if (target != Vector3.zero)
         {
-            target = transform.position + transform.forward;
+            transform.LookAt(target);
         }
-        transform.LookAt(target);
     }
 
     #endregion
