@@ -8,7 +8,7 @@ public class Pistol : FiringMode
     public override void Shoot(Transform firingPoint, ProjectileType type, Character owner)
     {
         var projectile = type.SpawnProjectile(firingPoint.position);
-        projectile.damage = type.baseDamage * owner.GetAttackMultiplier();
+        projectile.damage = type.baseDamage * (owner.GetAttackMultiplier() + 1);
         projectile.type = type;
         projectile.owner = owner;
         projectile.SetDirection(firingPoint.forward);

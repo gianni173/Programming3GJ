@@ -25,9 +25,9 @@ MonoBehaviour:
   basicInputType: {fileID: 11400000, guid: 6596387dc4d19c9498f325110c4675b6, type: 2}
   basicFaction: {fileID: 11400000, guid: dfb4faceeee8b4749b828673c0d9b634, type: 2}
   basicFiringMode: {fileID: 11400000, guid: 76bbbde5d9fb3a34e95fcbd921fd82da, type: 2}
-  basicProjectileType: {fileID: 11400000, guid: afb1d527292c02c41b6b19bceeeb8189,
+  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
     type: 2}
-  basicEnragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
+  basicEnragedProjectileType: {fileID: 11400000, guid: 8925da53956458a479686509a614f0f9,
     type: 2}
   weaponType: 1
   weaponPrefab: {fileID: 6345661780449050407, guid: 423fcc74cf5090a43969d7e272064327,

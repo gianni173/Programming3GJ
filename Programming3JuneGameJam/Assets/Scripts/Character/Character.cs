@@ -94,7 +94,7 @@ public class Character : MonoBehaviour
 
     public float GetAttackMultiplier()
     {
-        return Stats.attackMultiplier * GetStatsMultiplier();
+        return Stats.attackMultiplier * (GetStatsMultiplier() - 1);
     }
 
 

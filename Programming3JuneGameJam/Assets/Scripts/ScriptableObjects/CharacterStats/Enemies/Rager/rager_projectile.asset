@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: rager_projectile
   m_EditorClassIdentifier: 
   prefab: {fileID: 7457472198915622296, guid: cd6036fb9e7796445b99c7445ac40cf3, type: 3}
-  speed: 17
+  speed: 34
   baseDamage: 10
   damageType: {fileID: 11400000, guid: 79606f5aac4a0914e84eeb9448ad778d, type: 2}
   lifeTime: 5
