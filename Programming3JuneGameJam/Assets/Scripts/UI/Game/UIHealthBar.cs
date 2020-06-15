@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class UIHealthBar : MonoBehaviour
 {
     [Title("References")]
-    [SerializeField] private Slider slider = null;
+    [SerializeField] private Slider healthSlider = null;
     [SerializeField] private Image fill = null;
     [SerializeField] private Image background = null;
+    [SerializeField] private GameObject rageComponents = null;
+    [SerializeField] private Slider rageTimeSlider = null;
     [SerializeField] private RectTransform rageThreshold = null;
     [SerializeField] private Image rageThresholdImage = null;
 
@@ -40,7 +42,7 @@ public class UIHealthBar : MonoBehaviour
     public void SetValue(float currValue, float maxValue)
     {
         float normalizedValue = (float)(currValue - .001) % maxValue;
-        slider.value = normalizedValue / maxValue;
+        healthSlider.value = normalizedValue / maxValue;
         UpdateColor(currValue, maxValue);
     }
 
@@ -58,7 +60,7 @@ public class UIHealthBar : MonoBehaviour
 
     private void SetRageThreshold(Character character, float normalizedRageTime)
     {
-        rageThreshold.gameObject.SetActive(normalizedRageTime > 0);
+        rageComponents.gameObject.SetActive(normalizedRageTime > 0);
         if (normalizedRageTime > 0)
         {
             rageThreshold.anchorMin = new Vector2(character.Rage.stats.normalizedThreshold, 0f);
@@ -66,6 +68,7 @@ public class UIHealthBar : MonoBehaviour
             rageThreshold.anchoredPosition = Vector2.zero;
             rageThresholdImage.color = character.HP / character.Stats.basicHP > character.Rage.stats.normalizedThreshold ?
                                         Color.green : Color.red;
+            rageTimeSlider.value = normalizedRageTime;
         }
     }
 

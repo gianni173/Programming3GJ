@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
-using UnityEditor.SceneManagement;
-using UnityEditorInternal;
 
 public class Character : MonoBehaviour
 {
@@ -128,7 +123,7 @@ public class Character : MonoBehaviour
     {
         if (Rage && !Rage.isRaging && HP > Stats.basicHP)
         {
-            HP -= Stats.basicHP / 25 * Time.deltaTime;
+            HP -= Stats.basicHP / 25 * Time.deltaTime * GetStatsMultiplier();
             if (HP < Stats.basicHP)
             {
                 HP = Stats.basicHP;

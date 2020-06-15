@@ -6,12 +6,13 @@ public class SoundPlayer : Singleton<SoundPlayer>
 {
     [SerializeField] private AudioSource musicSource = null;
     [SerializeField] private AudioSource oneShotSource = null;
+    [SerializeField] private float globalVolume = .3f;
 
     public void Play(Sound sound)
     {
         var source = sound.isOneShot ? oneShotSource : musicSource;
         source.clip = sound.clip;
-        source.volume = Random.Range(sound.minMaxVolume.x, sound.minMaxVolume.y);
+        source.volume = Random.Range(sound.minMaxVolume.x, sound.minMaxVolume.y)  * globalVolume;
         source.pitch = Random.Range(sound.minMaxPitch.x, sound.minMaxPitch.y);
         if (sound.isOneShot)
         {
