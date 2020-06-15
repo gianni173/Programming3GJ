@@ -169,11 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcdc0d39e1bc774492f81350bcb050a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: {fileID: 0}
   Stats: {fileID: 11400000, guid: 799c70efaae4e224b96b6c4da599f5de, type: 2}
   Input: {fileID: 3435319643861117319}
   Movement: {fileID: 3435319643861117312}
-  Rage: {fileID: 0}
   Animation: {fileID: 4008963397033497746}
   Graphic: {fileID: 6241348648817077639}
   Weapon: {fileID: 7012208942926349265}
@@ -192,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76d4710460943f7ad4618a74b6b51a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputType: {fileID: 0}
   character: {fileID: 3435319643861117318}
   weapon: {fileID: 7012208942926349265}
 --- !u!114 &3435319643861117312
@@ -521,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingPoint: {fileID: 5180410870166138303}
-  firingMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
+  firingMode: {fileID: 0}
   projectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57, type: 2}
   enragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
     type: 2}

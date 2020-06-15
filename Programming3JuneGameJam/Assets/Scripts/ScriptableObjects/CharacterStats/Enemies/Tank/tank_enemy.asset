@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
+  m_Name: tank_enemy
+  m_EditorClassIdentifier: 
+  hierarchyName: Tank Enemy
+  basicHP: 140
+  attackMultiplier: 1
+  basicSpd: 4
+  speedMultiplier: 1
+  hitBoxHeight: 4
+  hitBoxRadius: 1
+  defenceAgainstNotEnraged: 0
+  defenceAgainstEnraged: 0
+  rageStats: {fileID: 0}
+  basicInputType: {fileID: 11400000, guid: 0ba5a5fc0ba686246ad8c4d5f8c3b7b3, type: 2}
+  basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
+  basicFiringMode: {fileID: 11400000, guid: 606df05b6cbcee84ca36b23408a521e8, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: 8df39ce43ec481c498a25b854c53076c,
+    type: 2}
+  basicEnragedProjectileType: {fileID: 0}
+  weaponType: 1
+  weaponPrefab: {fileID: 1722838658101682, guid: 4f59791116191f444a9238c811769c9a,
+    type: 3}
+  modelKey: 4
+  sizeMultiplier: 1.3

@@ -16,12 +16,14 @@ public class CharacterStats : ScriptableObject
     public float speedMultiplier = 0f;
     public float hitBoxHeight = 2f;
     public float hitBoxRadius = .75f;
+    public float defenceAgainstNotEnraged = 0f;
+    public float defenceAgainstEnraged = 0f;
     public RageStats rageStats = null;
     [Space(5), Title("Input Stats")]
     public InputType basicInputType;
     [Space(5), Title("Faction Stats")]
     public Faction basicFaction;
-    [Space(5), Title("Faction Stats")]
+    [Space(5), Title("Firing Stats")]
     public FiringMode basicFiringMode;
     public ProjectileType basicProjectileType;
     public ProjectileType basicEnragedProjectileType;
@@ -29,6 +31,7 @@ public class CharacterStats : ScriptableObject
     public WeaponType weaponType = WeaponType.Light;
     public GameObject weaponPrefab;
     public ModelKey modelKey = ModelKey.None;
+    public float sizeMultiplier = 1f;
 
     public enum ModelKey
     {

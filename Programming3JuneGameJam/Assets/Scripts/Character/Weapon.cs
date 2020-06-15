@@ -21,20 +21,26 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if(character.Rage && character.Rage.isRaging)
+        if (character.Rage && character.Rage.isRaging)
         {
-            firingMode.Shoot(firingPoint, enragedProjectileType, character);
+            if (firingMode && enragedProjectileType)
+            {
+                firingMode.Shoot(firingPoint, enragedProjectileType, character);
+            }
         }
         else
         {
-            firingMode.Shoot(firingPoint, projectileType, character);
+            if (firingMode && projectileType)
+            {
+                firingMode.Shoot(firingPoint, projectileType, character);
+            }
         }
         lastShootTime = Time.time;
     }
 
     public bool CanShoot()
     {
-        if (character)
+        if (character && firingMode)
         {
             var bps = firingMode.bulletsPerSecond;
             if(character.Rage && character.Rage.isRaging)

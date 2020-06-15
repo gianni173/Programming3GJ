@@ -20,6 +20,7 @@ public class CharacterRage : MonoBehaviour
         if(isRaging && currRageTime > 0)
         {
             currRageTime -= Time.deltaTime;
+            character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
             if (currRageTime <= 3)
             {
                 rageCircleAnim.SetBool("IsEnding", true);
@@ -38,8 +39,8 @@ public class CharacterRage : MonoBehaviour
         isRaging = true;
         rageCircle.SetActive(isRaging);
         rageCircleAnim.SetBool("IsRaging", isRaging);
-        character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
         currRageTime = stats.rageTime;
+        character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
     }
 
     [Button("Stop")]
