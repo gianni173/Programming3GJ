@@ -20,6 +20,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        Cursor.visible = false;
+
         LevelSystem = LevelSystem.Instance;
         if(LevelSystem)
         {
