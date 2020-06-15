@@ -13,6 +13,10 @@ public class BaseProjectileType : ProjectileType
 
     public override float ProjectileBehaviour(Character characterHit, Projectile projectile)
     {
+        if (hitParticlePrefab)
+        {
+            Instantiate(hitParticlePrefab, projectile.transform.position, Quaternion.identity);
+        }
         var actualDamageInflicted = characterHit.ReceiveDamage(
                                                     new HitInfos
                                                     {

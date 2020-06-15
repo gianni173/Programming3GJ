@@ -16,6 +16,7 @@ public class UIMenuMainPanel : MonoBehaviour
     {
         playButton.onClick.AddListener(Play);
         quitButton.onClick.AddListener(Quit);
+        Cursor.visible = true;
     }
 
     private void Play()
