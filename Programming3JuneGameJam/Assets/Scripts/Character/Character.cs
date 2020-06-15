@@ -61,6 +61,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private CapsuleCollider hitBox = null;
     [SerializeField] private GameObject rageCircle = null;
+    [SerializeField] private ParticleSystem rageParticle = null;
 
     // stats
     private float hp = 0f;
@@ -85,6 +86,7 @@ public class Character : MonoBehaviour
                     }
                     else
                     {
+                        rageParticle.Play();
                         Rage.StartRage();
                     }
                 }
