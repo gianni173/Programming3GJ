@@ -16,7 +16,7 @@ public class UIWinPanel : Singleton<UIWinPanel>
 
     public void Win()
     {
-        winPanelBg.SetActive(false);
+        winPanelBg.SetActive(true);
         winPanel.SetActive(true);
     }
 }

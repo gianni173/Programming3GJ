@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private CharacterStats playerStats = default;
     [SerializeField] private string menuScene = "MainMenu";
+    [SerializeField] private Sound winSound = null;
+    [SerializeField] private string loseScene = "MainScene";
+    [SerializeField] private Sound loseSound = null;
 
     private LevelSystem LevelSystem = null;
     private CameraManager CameraManager = null;
@@ -33,13 +37,31 @@ public class GameManager : Singleton<GameManager>
         {
             winPanel.Win();
         }
-        StartCoroutine(GoToMenuDelayed(5f));
+        if (winSound)
+        {
+            SoundPlayer.Instance?.Play(winSound);
+        }
+        StartCoroutine(LoadSceneDelayed(5f, menuScene));
     }
 
-    private IEnumerator GoToMenuDelayed(float delay)
+    public void Lose()
+    {
+        var losePanel = UILosePanel.Instance;
+        if (losePanel)
+        {
+            losePanel.Lose();
+        }
+        if (loseSound)
+        {
+            SoundPlayer.Instance?.Play(loseSound);
+        }
+        StartCoroutine(LoadSceneDelayed(5f, loseScene));
+    }
+
+    private IEnumerator LoadSceneDelayed(float delay, string sceneName)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadSceneAsync(menuScene);
+        SceneManager.LoadSceneAsync(sceneName);
     }
 
     private void SpawnMainPlayer()
@@ -48,6 +70,7 @@ public class GameManager : Singleton<GameManager>
                                         LevelSystem.loadedMap.spawnPoint.rotation, LevelSystem.loadedMap.charactersContainer);
         var characterComponent = playerSpawned.GetComponent<Character>();
         characterComponent.InitCharacter(playerStats, GlobalSettings.Instance.playerFaction);
+        characterComponent.OnDeath += MainPlayerDead;
 
         OnMainPlayerSpawned?.Invoke(characterComponent);
 
@@ -56,5 +79,10 @@ public class GameManager : Singleton<GameManager>
             CameraManager.followSystem.target = playerSpawned.transform;
             CameraManager.followSystem.Snap();
         }
+    }
+
+    private void MainPlayerDead(Character mainPlayer)
+    {
+        Lose();
     }
 }
