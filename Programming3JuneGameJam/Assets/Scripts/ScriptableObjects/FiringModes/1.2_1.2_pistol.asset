@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8435d92a879b024381794303f51ed4e, type: 3}
-  m_Name: ai_basic_aggro
+  m_Script: {fileID: 11500000, guid: ae89830ca6f94345bc4ac916c5517b7c, type: 3}
+  m_Name: 1.2_1.2_pistol
   m_EditorClassIdentifier: 
-  visionRange: 25
-  shootingRange: 8
+  bulletsPerSecond: 1.2
+  enragedBulletsPerSecond: 1.2

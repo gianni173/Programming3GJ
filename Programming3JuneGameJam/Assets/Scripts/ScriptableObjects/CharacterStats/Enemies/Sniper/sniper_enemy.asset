@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
+  m_Name: sniper_enemy
+  m_EditorClassIdentifier: 
+  hierarchyName: Sniper Enemy
+  basicHP: 40
+  attackMultiplier: 1
+  basicSpd: 4
+  speedMultiplier: 1
+  hitBoxHeight: 4
+  hitBoxRadius: 1
+  defenceAgainstNotEnraged: 0
+  defenceAgainstEnraged: 0
+  rageStats: {fileID: 0}
+  basicInputType: {fileID: 11400000, guid: 232a266aa54c6f8478bb218d55fe18cc, type: 2}
+  basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
+  basicFiringMode: {fileID: 11400000, guid: e364141e50d91894080b022f070c4884, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: 8bd268b69fe22bc4295bf538982c9bad,
+    type: 2}
+  basicEnragedProjectileType: {fileID: 0}
+  weaponType: 1
+  weaponPrefab: {fileID: 1310268070637946, guid: f78357a78db3dfd4e8c638310767dd56,
+    type: 3}
+  modelKey: 9

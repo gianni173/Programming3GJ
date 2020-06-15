@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEditor.SceneManagement;
+using UnityEditorInternal;
 
 public class Character : MonoBehaviour
 {
@@ -116,30 +117,54 @@ public class Character : MonoBehaviour
     }
 
     #endregion
-    
+
+    #region Unity Callbacks
+
+    private void Update()
+    {
+        if (Rage && !Rage.isRaging && HP > Stats.basicHP)
+        {
+            HP -= Stats.basicHP / 25 * Time.deltaTime;
+            if (HP < Stats.basicHP)
+            {
+                HP = Stats.basicHP;
+            }
+        }
+    }
+
+    #endregion
+
     #region Methods
 
     public void InitCharacter(CharacterStats startingStatsOverride = null, Faction startingFactionOverride = null)
     {
+        //Stats override
         if (startingStatsOverride)
         {
             Stats = startingStatsOverride;
         }
+
         if (Stats)
         {
+            //Name
             gameObject.name = Stats.hierarchyName + " Character";
+            //Faction
             if(Stats.basicFaction)
             {
                 Faction = Stats.basicFaction;
             }
+            //Basic stats
             HP = Stats.basicHP;
             Spd = Stats.basicSpd;
-            hitBox.height = Stats.hitBoxHeight;
+            //Hitbox size
+            hitBox.radius = Stats.hitBoxRadius * Stats.sizeMultiplier;
+            hitBox.height = Stats.hitBoxHeight * Stats.sizeMultiplier;
             hitBox.center = new Vector3(0, hitBox.height / 2, 0);
-            hitBox.radius = Stats.hitBoxRadius;
+            //Input Type
             if (Stats.basicInputType)
             {
                 Input.inputType = Stats.basicInputType;
+                //Target detectors
                 var aiInputType = Stats.basicInputType as AIInput;
                 CharacterTargetDetectors.SetDetectorsActive(aiInputType != null);
                 if (aiInputType != null)
@@ -147,6 +172,7 @@ public class Character : MonoBehaviour
                     CharacterTargetDetectors.SetDetectorsRanges(aiInputType.visionRange, aiInputType.shootingRange);
                 }
             }
+            //Rage
             if (Stats.rageStats)
             {
                 var rageComponent = gameObject.AddComponent<CharacterRage>();
@@ -156,22 +182,25 @@ public class Character : MonoBehaviour
                 rageComponent.stats = Stats.rageStats;
                 Rage = rageComponent;
             }
+            //Model graphics
             if (Graphic)
             {
                 Graphic.SetUpGraphic(Stats.modelKey);
+                Graphic.gameObject.transform.localScale = Vector3.one * 2 * Stats.sizeMultiplier;
+                Weapon.gameObject.transform.localScale = Vector3.one * Stats.sizeMultiplier;
+                //Weapon graphics
+                if (Stats.weaponPrefab)
+                {
+                    Graphic.SetWeapon(this);
+                }
             }
-            if (Stats.weaponPrefab)
-            {
-                Graphic.SetWeapon(this);   
-            }
-            Weapon.firingMode = Stats.basicFiringMode ? 
-                Stats.basicFiringMode : Weapon.firingMode;
-            Weapon.projectileType = Stats.basicProjectileType ? 
-                Stats.basicProjectileType : Weapon.projectileType;
-            Weapon.enragedProjectileType = Stats.basicEnragedProjectileType ? 
-                Stats.basicEnragedProjectileType : Weapon.enragedProjectileType;
+            //Weapon firing system
+            Weapon.firingMode = Stats.basicFiringMode;
+            Weapon.projectileType = Stats.basicProjectileType;
+            Weapon.enragedProjectileType = Stats.basicEnragedProjectileType;
         }
 
+        //Faction override
         if(startingFactionOverride)
         {
             Faction = startingFactionOverride;
@@ -199,7 +228,9 @@ public class Character : MonoBehaviour
         {
             damageReceived *= hitInfos.damageType.multiplierAgainstNotEnraged;
         }
-        
+
+        damageReceived *= hitInfos.isEnragedDamage ? 1 - Stats.defenceAgainstEnraged : 1 - Stats.defenceAgainstNotEnraged;
+
         HP -= damageReceived;
         return damageReceived;
     }
@@ -215,7 +246,7 @@ public class Character : MonoBehaviour
         if (Rage && Rage.isRaging)
         {
             var currHpMultipler = (int)((hp - .001f) / Stats.basicHP) + 1;
-            return currHpMultipler > 3 ? currHpMultipler : 3;
+            return currHpMultipler > Rage.stats.baseRageMultiplier ? currHpMultipler : Rage.stats.baseRageMultiplier;
         }
         else
         {

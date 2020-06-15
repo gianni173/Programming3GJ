@@ -10,22 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: normal_enemy
+  m_Name: rage_immune_enemy
   m_EditorClassIdentifier: 
-  hierarchyName: Normal Enemy
-  basicHP: 25
+  hierarchyName: Tank Enemy
+  basicHP: 80
   attackMultiplier: 1
   basicSpd: 8
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
+  defenceAgainstNotEnraged: 0
+  defenceAgainstEnraged: 1
   rageStats: {fileID: 0}
-  basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
+  basicInputType: {fileID: 11400000, guid: 291381d647baa6e46861246b9bbc72ce, type: 2}
   basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
-  basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
-  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+  basicFiringMode: {fileID: 11400000, guid: 9060d86a8f74f3d43913c56cc53207a1, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: f078ba49056a07b46840d6246e317041,
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
   weaponType: 1
-  weaponPrefab: {fileID: 100000, guid: 41aca4baa18f7cb4b8119f84face57d9, type: 3}
-  modelKey: 1
+  weaponPrefab: {fileID: 1722838658101682, guid: 4f59791116191f444a9238c811769c9a,
+    type: 3}
+  modelKey: 12

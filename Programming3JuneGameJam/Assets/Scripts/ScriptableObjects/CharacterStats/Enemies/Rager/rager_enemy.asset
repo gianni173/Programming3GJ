@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: runner_enemy
+  m_Name: rager_enemy
   m_EditorClassIdentifier: 
-  hierarchyName: Tank Enemy
-  basicHP: 10
+  hierarchyName: Rager Enemy
+  basicHP: 60
   attackMultiplier: 1
-  basicSpd: 14
+  basicSpd: 7
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
-  rageStats: {fileID: 0}
+  defenceAgainstNotEnraged: 0
+  defenceAgainstEnraged: 0
+  rageStats: {fileID: 11400000, guid: 05c95c12c72217249ba1dd74b2265353, type: 2}
   basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
   basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
-  basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
-  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+  basicFiringMode: {fileID: 11400000, guid: d9ab237dc031e044c9d2542d6a9fc96a, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: 62aa30f2cf3feb74ca2a8b9184d000fb,
     type: 2}
-  basicEnragedProjectileType: {fileID: 0}
-  weaponType: 0
-  weaponPrefab: {fileID: 1347048607590356, guid: 7e140394e95da314a9a63645d1c4a08f,
+  basicEnragedProjectileType: {fileID: 11400000, guid: f979ccf56b41c8e4680ace91d8dba546,
+    type: 2}
+  weaponType: 1
+  weaponPrefab: {fileID: 1722838658101682, guid: 4f59791116191f444a9238c811769c9a,
     type: 3}
-  modelKey: 2
+  modelKey: 16

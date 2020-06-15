@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,4 +10,5 @@ public class RageStats : ScriptableObject
     public float normalizedThreshold = .5f;
     public float rageDrainMultiplier = .3f;
     public float rageTime = 5f; 
+    public float baseRageMultiplier = 3f; 
 }

@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5dbd3667937a8dc4085759d10256ed16, type: 3}
-  m_Name: tank_enemy
+  m_Name: normal_enemy
   m_EditorClassIdentifier: 
-  hierarchyName: Tank Enemy
-  basicHP: 140
+  hierarchyName: Normal Enemy
+  basicHP: 40
   attackMultiplier: 1
-  basicSpd: 4
+  basicSpd: 7
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
+  defenceAgainstNotEnraged: 0
+  defenceAgainstEnraged: 0
   rageStats: {fileID: 0}
-  basicInputType: {fileID: 11400000, guid: e2b57a7f959453c4aa430aa56fbdbf88, type: 2}
+  basicInputType: {fileID: 11400000, guid: b09a677e7b8476446a42dba1fdbd2ba0, type: 2}
   basicFaction: {fileID: 11400000, guid: aea41ab6eb2ce5e45ba875d4a5bbe22d, type: 2}
-  basicFiringMode: {fileID: 11400000, guid: c9b8b19b6cc975b42b173008e4ccabf6, type: 2}
-  basicProjectileType: {fileID: 11400000, guid: d5729f2aa5e484d42ae2d7c221206d57,
+  basicFiringMode: {fileID: 11400000, guid: 64d2d95326cfad546b380322fc6ae2ee, type: 2}
+  basicProjectileType: {fileID: 11400000, guid: b6a0ba0ff1382f84eb1938c7aa899628,
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
   weaponType: 1
-  weaponPrefab: {fileID: 1722838658101682, guid: 4f59791116191f444a9238c811769c9a,
-    type: 3}
-  modelKey: 4
+  weaponPrefab: {fileID: 100000, guid: 41aca4baa18f7cb4b8119f84face57d9, type: 3}
+  modelKey: 1
