@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5df303aa345c0040a0dfec5f170e4d2, type: 3}
   m_Name: sniper_projectile
   m_EditorClassIdentifier: 
-  prefab: {fileID: 345054468480115704, guid: 50d50602f1d03734980d52b8c217feb0, type: 3}
+  prefab: {fileID: 5992317229016433630, guid: 796378fba8892b34088dfd99e3e4a69a, type: 3}
   speed: 30
   baseDamage: 30
   damageType: {fileID: 11400000, guid: 79606f5aac4a0914e84eeb9448ad778d, type: 2}
