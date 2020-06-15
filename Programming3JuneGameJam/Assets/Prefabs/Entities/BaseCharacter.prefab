@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &36235376891530444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5119817184927856992}
+  m_Layer: 0
+  m_Name: RageBloods
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5119817184927856992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36235376891530444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3435319643861117316}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498561213734976849
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +184,7 @@ Transform:
   - {fileID: 1676921872328944839}
   - {fileID: 1249604585027980067}
   - {fileID: 8821350899819619746}
+  - {fileID: 5119817184927856992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,6 +210,9 @@ MonoBehaviour:
   hitBox: {fileID: 1649386575929584303}
   rageCircle: {fileID: 2003891720964153406}
   rageParticle: {fileID: 6484319402587781269}
+  bloodRageParticle: {fileID: 5853607346798525298, guid: 2f4ed6a8add8ed945860a6960699c971,
+    type: 3}
+  bloodRageParticleContainer: {fileID: 36235376891530444}
 --- !u!114 &3435319643861117319
 MonoBehaviour:
   m_ObjectHideFlags: 0

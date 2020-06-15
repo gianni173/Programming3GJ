@@ -35,6 +35,10 @@ public class Weapon : MonoBehaviour
                 firingMode.Shoot(firingPoint, projectileType, character);
             }
         }
+        if(character.Stats.playsShootSound && character.Stats.shootSound)
+        {
+            SoundPlayer.Instance?.Play(character.Stats.shootSound);
+        }
         lastShootTime = Time.time;
     }
 

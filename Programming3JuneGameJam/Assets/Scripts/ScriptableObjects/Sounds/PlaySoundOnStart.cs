@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaySoundOnStart : MonoBehaviour
 {
-    [SerializeField] private Sound soundToPlay;
+    [SerializeField] private Sound soundToPlay = null;
     
     private void Start()
     {

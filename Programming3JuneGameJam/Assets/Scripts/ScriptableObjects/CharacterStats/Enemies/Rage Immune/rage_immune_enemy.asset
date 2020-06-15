@@ -33,3 +33,13 @@ MonoBehaviour:
     type: 3}
   modelKey: 12
   sizeMultiplier: 1
+  playsHitSound: 1
+  hitSound: {fileID: 11400000, guid: 447efb1ce781dcd4282a2c5d8812c276, type: 2}
+  playsDefendedHitSound: 1
+  defendedHitSound: {fileID: 11400000, guid: 81b18e8c0eb6a7341b1d9dbeaa54fe8c, type: 2}
+  playsRageSound: 1
+  rageSound: {fileID: 11400000, guid: 2536ba1f0e8d4a949b1b8228a529764e, type: 2}
+  playsRageDrainSound: 1
+  rageDrainSound: {fileID: 0}
+  playsShootSound: 1
+  shootSound: {fileID: 11400000, guid: 6e6f4757d6510074aaea2828542941b4, type: 2}

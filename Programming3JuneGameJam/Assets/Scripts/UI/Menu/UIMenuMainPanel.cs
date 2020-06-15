@@ -11,6 +11,8 @@ public class UIMenuMainPanel : MonoBehaviour
     [SerializeField] private string playScene = default;
     [Space(5), Title("Quit")]
     [SerializeField] private UIMenuButton quitButton = default;
+    [Space(5), Title("Generic")]
+    [SerializeField] private Sound clickSound = null;
 
     private void Start()
     {
@@ -21,11 +23,13 @@ public class UIMenuMainPanel : MonoBehaviour
 
     private void Play()
     {
+        SoundPlayer.Instance?.Play(clickSound);
         SceneManager.LoadSceneAsync(playScene);
     }
 
     private void Quit()
     {
+        SoundPlayer.Instance?.Play(clickSound);
         Application.Quit();
     }
 }

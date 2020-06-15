@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIWinPanel : Singleton<UIWinPanel>
 {
-    [SerializeField] private GameObject winPanel;
-    [SerializeField] private GameObject winPanelBg;
+    [SerializeField] private GameObject winPanel = null;
+    [SerializeField] private GameObject winPanelBg = null;
 
     private void Start()
     {

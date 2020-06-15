@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 6124850668354276218}
   entitiesSpawnedContainer: {fileID: 5266726877835125180}
   entitiesSpawned: []
+  completeSound: {fileID: 11400000, guid: 896f7acf3b014c143a8fdf80e3286ea1, type: 2}
 --- !u!65 &6124850668354276218
 BoxCollider:
   m_ObjectHideFlags: 0

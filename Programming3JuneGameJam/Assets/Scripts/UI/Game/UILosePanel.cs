@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UILosePanel : Singleton<UILosePanel>
 {
-    [SerializeField] private GameObject losePanel;
-    [SerializeField] private GameObject losePanelBg;
+    [SerializeField] private GameObject losePanel = null;
+    [SerializeField] private GameObject losePanelBg = null;
 
     private void Start()
     {

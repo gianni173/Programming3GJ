@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SoundPlayer : Singleton<SoundPlayer>
 {
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource oneShotSource;
+    [SerializeField] private AudioSource musicSource = null;
+    [SerializeField] private AudioSource oneShotSource = null;
 
     public void Play(Sound sound)
     {
@@ -15,7 +15,7 @@ public class SoundPlayer : Singleton<SoundPlayer>
         source.pitch = Random.Range(sound.minMaxPitch.x, sound.minMaxPitch.y);
         if (sound.isOneShot)
         {
-            source.PlayOneShot(source.clip);
+            source.PlayOneShot(source.clip, source.volume);
         }
         else
         {

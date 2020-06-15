@@ -62,6 +62,8 @@ public class Character : MonoBehaviour
     [SerializeField] private CapsuleCollider hitBox = null;
     [SerializeField] private GameObject rageCircle = null;
     [SerializeField] private ParticleSystem rageParticle = null;
+    [SerializeField] private GameObject bloodRageParticle = null;
+    [SerializeField] private GameObject bloodRageParticleContainer = null;
 
     // stats
     private float hp = 0f;
@@ -209,11 +211,26 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void DamageInflicted(float damageInflicted)
+    public void DamageInflicted(float damageInflicted, GameObject target)
     {
         if(Rage && Rage.isRaging)
         {
-            HP += damageInflicted * Rage.stats.rageDrainMultiplier;    
+            HP += damageInflicted * Rage.stats.rageDrainMultiplier;  
+            if(Stats.playsRageDrainSound && Stats.rageDrainSound)
+            {
+                SoundPlayer.Instance?.Play(Stats.rageDrainSound);
+            }
+            if(bloodRageParticle)
+            {
+                var newParticle = Instantiate(bloodRageParticle);
+
+                newParticle.transform.position = transform.position;
+                newParticle.transform.forward = target.transform.position - transform.position;
+
+                var followTargetComponent = newParticle.GetComponent<FollowTarget>();
+                followTargetComponent.target = transform;
+                followTargetComponent.offset = bloodRageParticleContainer.transform.position - newParticle.transform.position;
+            }
         }
     }
 
@@ -232,6 +249,21 @@ public class Character : MonoBehaviour
         }
 
         damageReceived *= hitInfos.isEnragedDamage ? 1 - Stats.defenceAgainstEnraged : 1 - Stats.defenceAgainstNotEnraged;
+
+        if (damageReceived > 0)
+        {
+            if (Stats.playsHitSound && Stats.hitSound)
+            {
+                SoundPlayer.Instance?.Play(Stats.hitSound);
+            }
+        }
+        else
+        {
+            if (Stats.playsDefendedHitSound && Stats.defendedHitSound)
+            {
+                SoundPlayer.Instance?.Play(Stats.defendedHitSound);
+            }
+        }
 
         HP -= damageReceived;
         return damageReceived;

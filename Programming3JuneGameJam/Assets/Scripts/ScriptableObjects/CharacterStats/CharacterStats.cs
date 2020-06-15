@@ -32,6 +32,17 @@ public class CharacterStats : ScriptableObject
     public GameObject weaponPrefab;
     public ModelKey modelKey = ModelKey.None;
     public float sizeMultiplier = 1f;
+    [Space(5), Title("Sound")]
+    public bool playsHitSound = false;
+    public Sound hitSound = null;
+    public bool playsDefendedHitSound = false;
+    public Sound defendedHitSound = null;
+    public bool playsRageSound = true;
+    public Sound rageSound = null;
+    public bool playsRageDrainSound = true;
+    public Sound rageDrainSound = null;
+    public bool playsShootSound = true;
+    public Sound shootSound = null;
 
     public enum ModelKey
     {

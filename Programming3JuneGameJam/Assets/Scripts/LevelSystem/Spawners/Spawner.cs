@@ -23,6 +23,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform entitiesSpawnedContainer = null;
     [SerializeField] private List<Character> entitiesSpawned = new List<Character>();
 
+    [Space(5), Title("Spawner Behaviour")]
+    [SerializeField] private Sound completeSound = null;
+
     [NonSerialized] public bool isActive = false;
     private bool IsActive
     {
@@ -55,6 +58,10 @@ public class Spawner : MonoBehaviour
                     if (currWave >= waves.Length)
                     {
                         OnWavesCompleted?.Invoke();
+                        if (completeSound)
+                        {
+                            SoundPlayer.Instance?.Play(completeSound);
+                        }
                     }
                     if (isActive)
                     {

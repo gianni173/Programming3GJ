@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
                 if (characterHit != null && characterHit.Faction.IsEnemy(owner.faction))
                 {
                     var damageInflicted = type.ProjectileBehaviour(characterHit, this);
-                    owner.DamageInflicted(damageInflicted);
+                    owner.DamageInflicted(damageInflicted, other.gameObject);
                     hasHit = true;
                     Despawn();
                 }

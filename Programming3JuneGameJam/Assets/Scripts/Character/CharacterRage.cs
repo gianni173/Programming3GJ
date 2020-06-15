@@ -37,6 +37,10 @@ public class CharacterRage : MonoBehaviour
     public void StartRage()
     {
         isRaging = true;
+        if(character.Stats.playsRageSound && character.Stats.rageSound)
+        {
+            SoundPlayer.Instance?.Play(character.Stats.rageSound);
+        }
         rageCircle.SetActive(isRaging);
         rageCircleAnim.SetBool("IsRaging", isRaging);
         currRageTime = stats.rageTime;

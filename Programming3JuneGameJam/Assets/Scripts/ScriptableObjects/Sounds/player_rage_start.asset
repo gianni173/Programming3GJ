@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15039d18234053348aed696983dd01d9, type: 3}
-  m_Name: win_sound
+  m_Name: player_rage_start
   m_EditorClassIdentifier: 
   isOneShot: 1
-  clip: {fileID: 8300000, guid: 32fe7679e21e51545ba7bb15cb4db51c, type: 3}
-  minMaxVolume: {x: 1.5, y: 1.5}
-  minMaxPitch: {x: 1, y: 1}
+  clip: {fileID: 8300000, guid: 7e6d89550ce9a7d42a54b4beef5f8717, type: 3}
+  minMaxVolume: {x: 1.4, y: 1.5}
+  minMaxPitch: {x: 1, y: 1.1}

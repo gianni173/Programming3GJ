@@ -8,8 +8,9 @@ public partial class FollowTarget : MonoBehaviour
     #region Fields
 
     public Transform target = null;
+    public Vector3 offset = Vector3.zero;
+
     [SerializeField] private float smoothSpeed = 0.25f;
-    [SerializeField] private Vector3 offset = Vector3.zero;
 
     #endregion
 
