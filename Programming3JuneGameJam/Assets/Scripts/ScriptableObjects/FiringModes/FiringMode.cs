@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FiringMode : ScriptableObject
+public abstract class FiringMode : ScriptableObject
 {
     #region Fields
 
@@ -12,7 +12,7 @@ public class FiringMode : ScriptableObject
 
     #region Methods
 
-    public virtual void Shoot(Transform firingPoint, ProjectileType projectile, Character owner) { }
+    public abstract void Shoot(Transform firingPoint, ProjectileType type, Character owner);
 
     #endregion
 }
