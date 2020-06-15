@@ -40,6 +40,7 @@ public class CharacterRage : MonoBehaviour
         rageCircle.SetActive(isRaging);
         rageCircleAnim.SetBool("IsRaging", isRaging);
         currRageTime = stats.rageTime;
+        character.Animation.Rage();
         character.OnRageChanged?.Invoke(character, currRageTime / stats.rageTime);
     }
 

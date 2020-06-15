@@ -54,7 +54,7 @@ public class Character : MonoBehaviour
                 {
                     Rage.enabled = !isDead;
                 };
-                Graphic.SetActive(!isDead);
+                //Graphic.SetActive(!isDead);
             }
         }
     }
@@ -238,6 +238,7 @@ public class Character : MonoBehaviour
     public void Die()
     {
         OnDeath?.Invoke(this);
+        Animation.Death();
         IsDead = true;
     }
 
