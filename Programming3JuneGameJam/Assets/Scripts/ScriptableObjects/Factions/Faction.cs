@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Faction", fileName = "new_faction")]

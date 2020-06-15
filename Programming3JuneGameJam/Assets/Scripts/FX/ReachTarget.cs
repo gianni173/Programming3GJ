@@ -6,7 +6,7 @@ public class ReachTarget : MonoBehaviour
 
     public Transform target;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 0;
 
     #endregion
 

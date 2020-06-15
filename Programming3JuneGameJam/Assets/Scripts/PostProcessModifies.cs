@@ -68,6 +68,8 @@ public class PostProcessModifies : MonoBehaviour
     {
         mainPlayer.OnRageChanged += LinkedPlayerRageChanged;
         mainPlayer.OnHealthChanged += LinkedPlayerHealthChanged;
+        LinkedPlayerRageChanged(mainPlayer, 0);
+        LinkedPlayerHealthChanged(mainPlayer.HP, mainPlayer.Stats.basicHP);
     }
 
     private void LinkedPlayerHealthChanged(float curr, float max)

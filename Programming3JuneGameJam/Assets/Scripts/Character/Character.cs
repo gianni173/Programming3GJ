@@ -58,7 +58,6 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject rageCircle = null;
     [SerializeField] private ParticleSystem rageParticle = null;
     [SerializeField] private GameObject bloodRageParticle = null;
-    [SerializeField] private GameObject bloodRageParticleContainer = null;
 
     // stats
     private float hp = 0f;
