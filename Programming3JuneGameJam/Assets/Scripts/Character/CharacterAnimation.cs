@@ -12,7 +12,7 @@ public class CharacterAnimation : MonoBehaviour
     [Required, SerializeField] private Animator animator = null;
 
     private const string PosXParam = "PosX";
-    private const string PosYParam = "PosY";
+    private const string PosZParam = "PosY";
     private const string IsAimingParam = "IsAiming";
     private const string LightWeaponParam = "LightWeapon";
     private const string NormalWeaponParam = "NormalWeapon";
@@ -24,13 +24,15 @@ public class CharacterAnimation : MonoBehaviour
 
     public void SetMovementDirection(Vector3 direction)
     {
-        Vector3 forward = character.transform.forward;
-        Vector2 normalizedDirection = new Vector3(direction.x * forward.x, direction.z * forward.z);
-        Debug.Log(normalizedDirection);
-        float posX = Math.Abs(normalizedDirection.x) > 0.05f ? Mathf.Sign(normalizedDirection.x) : 0f;
-        float posY = Math.Abs(normalizedDirection.y) > 0.05f ? Mathf.Sign(normalizedDirection.y) : 0f;
-        animator.SetFloat(PosXParam, posX);
-        animator.SetFloat(PosYParam, posY);
+        var normalizedDirection = direction.normalized;
+
+        var rightMovement = Vector3.Dot(normalizedDirection, character.transform.right);
+        var forwardMovement = Vector3.Dot(normalizedDirection, character.transform.forward);
+
+        var relativeDirection = new Vector3(rightMovement, 0, forwardMovement).normalized;
+
+        animator.SetFloat(PosXParam, relativeDirection.x);
+        animator.SetFloat(PosZParam, relativeDirection.z);
     }
 
     public void IsAiming(bool isAiming)

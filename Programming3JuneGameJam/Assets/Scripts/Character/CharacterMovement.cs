@@ -27,19 +27,18 @@ public class CharacterMovement : MonoBehaviour
 
     public void Move(Vector3 direction, bool isLocal)
     {
+        var worldDirection = direction;
         if (!isLocal)
         {
             var rightMovement = direction.x * cameraRight;
             var forwardMovement = direction.z * cameraForward;
-            transform.position += (rightMovement + forwardMovement).normalized * Time.fixedDeltaTime * character.Spd;
+            worldDirection = (rightMovement + forwardMovement).normalized;
         }
-        else
-        {
-            transform.position += direction * Time.fixedDeltaTime * character.Spd;
-        }
+        transform.position += worldDirection * Time.fixedDeltaTime * character.Spd;
+
         if (character.Animation)
         {
-            character.Animation.SetMovementDirection(direction);
+            character.Animation.SetMovementDirection(worldDirection * Time.fixedDeltaTime * character.Spd * 1000);
         }
     }
     
