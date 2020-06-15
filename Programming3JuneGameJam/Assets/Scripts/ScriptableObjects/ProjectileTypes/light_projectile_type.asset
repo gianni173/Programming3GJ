@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: light_projectile_type
   m_EditorClassIdentifier: 
   prefab: {fileID: 9018695976537879163, guid: ba8107afdc19a6e4d9053f7288a63fcb, type: 3}
+  hitParticlePrefab: {fileID: 4585283179865254006, guid: ad608cd6625e20a48a3f3a0f4ce27625,
+    type: 3}
   speed: 40
   baseDamage: 10
   damageType: {fileID: 11400000, guid: 79606f5aac4a0914e84eeb9448ad778d, type: 2}

@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5df303aa345c0040a0dfec5f170e4d2, type: 3}
-  m_Name: player_projectile
+  m_Name: rager_rage_projectile
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7457472198915622296, guid: cd6036fb9e7796445b99c7445ac40cf3, type: 3}
+  prefab: {fileID: 7457472198915622296, guid: cb4872fd452cc504abc5f7e36dc975c3, type: 3}
+  hitParticlePrefab: {fileID: 4585283179865254006, guid: ad608cd6625e20a48a3f3a0f4ce27625,
+    type: 3}
   speed: 40
-  baseDamage: 20
+  baseDamage: 14
   damageType: {fileID: 11400000, guid: 79606f5aac4a0914e84eeb9448ad778d, type: 2}
   lifeTime: 5
-  isEnraged: 0
+  isEnraged: 1
