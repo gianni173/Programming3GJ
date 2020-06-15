@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hierarchyName: Player
   basicHP: 100
-  attackMultiplier: 0.5
+  attackMultiplier: 0.4
   basicSpd: 10
-  speedMultiplier: 0.3
+  speedMultiplier: 0.15
   hitBoxHeight: 4
   hitBoxRadius: 1
   defenceAgainstNotEnraged: 0
@@ -34,13 +34,13 @@ MonoBehaviour:
     type: 3}
   modelKey: 5
   sizeMultiplier: 1
-  playsHitSound: 1
-  hitSound: {fileID: 11400000, guid: dc0cfa0b1b17b5a4c8b2ca19ddcbcc8b, type: 2}
-  playsDefendedHitSound: 1
-  defendedHitSound: {fileID: 11400000, guid: 6a916f20cf220524dad433133f64128f, type: 2}
+  playsHitSound: 0
+  hitSound: {fileID: 0}
+  playsDefendedHitSound: 0
+  defendedHitSound: {fileID: 0}
   playsRageSound: 1
-  rageSound: {fileID: 11400000, guid: c8bb15cc8d36be044ad5e6257fdc90ea, type: 2}
+  rageSound: {fileID: 0}
   playsRageDrainSound: 1
   rageDrainSound: {fileID: 0}
   playsShootSound: 1
-  shootSound: {fileID: 11400000, guid: 889091780fe0efc479414163a24c8bfa, type: 2}
+  shootSound: {fileID: 0}
