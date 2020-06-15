@@ -20,7 +20,8 @@ public class CharacterGraphic : MonoBehaviour
     {
         foreach(Transform child in transform.GetComponentInChildren<Transform>())
         {
-            if(child.name != gameObject.name)
+            if(child.name != gameObject.name &&
+               child.name != "Root")
             {
                 child.gameObject.SetActive(false);
             }
@@ -35,9 +36,9 @@ public class CharacterGraphic : MonoBehaviour
 
     public void SetWeapon(Character character)
     {
-        var instance = Instantiate(character.Stats.weaponPrefab, weaponHandler);
-        instance.transform.localPosition = Vector3.zero;
-        instance.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        var weaponCreated = Instantiate(character.Stats.weaponPrefab, weaponHandler);
+        weaponCreated.transform.localPosition = Vector3.zero;
+        weaponCreated.transform.localRotation = Quaternion.Euler(Vector3.zero);
         character.Animation.SetWeaponType(character.Stats.weaponType);
     }
 

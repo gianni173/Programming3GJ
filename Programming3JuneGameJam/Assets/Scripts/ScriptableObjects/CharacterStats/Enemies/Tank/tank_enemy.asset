@@ -29,7 +29,7 @@ MonoBehaviour:
     type: 2}
   basicEnragedProjectileType: {fileID: 0}
   weaponType: 1
-  weaponPrefab: {fileID: 1722838658101682, guid: 4f59791116191f444a9238c811769c9a,
+  weaponPrefab: {fileID: 6345661780449050407, guid: 423fcc74cf5090a43969d7e272064327,
     type: 3}
   modelKey: 4
   sizeMultiplier: 1.3
