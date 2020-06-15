@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
+    public event Action OnWavesCompleted;
+
     [Title("Activations")]
     [SerializeField] private bool startsActive = true;
     [SerializeField] private TriggerDetector[] activators = null;
@@ -17,11 +19,11 @@ public class Spawner : MonoBehaviour
     [SerializeField, ShowIf("pulseMode")] private float spawnerPulse = 20f;
     [SerializeField, HideIf("pulseMode")] private float spawnerDelay = 5f;
     [SerializeField] private Wave[] waves = null;
-    [SerializeField] private BoxCollider spawnArea = null;
+    [SerializeField] private BoxCollider[] spawnAreas = null;
     [SerializeField] private Transform entitiesSpawnedContainer = null;
     [SerializeField] private List<Character> entitiesSpawned = new List<Character>();
 
-    private bool isActive = false;
+    [NonSerialized] public bool isActive = false;
     private bool IsActive
     {
         get => isActive;
@@ -50,7 +52,14 @@ public class Spawner : MonoBehaviour
                 if (aliveEntities <= 0 && !pulseMode)
                 {
                     aliveEntities = 0;
-                    StartCoroutine(DelayedSpawnWave(spawnerDelay));
+                    if (currWave >= waves.Length)
+                    {
+                        OnWavesCompleted?.Invoke();
+                    }
+                    if (isActive)
+                    {
+                        StartCoroutine(DelayedSpawnWave(spawnerDelay));
+                    }
                 }
             }
         }
@@ -61,16 +70,19 @@ public class Spawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (spawnArea)
+        if (spawnAreas != null && spawnAreas.Length > 0)
         {
-            var prevGizmosColor = Gizmos.color;
+            foreach (BoxCollider spawnArea in spawnAreas)
+            {
+                var prevGizmosColor = Gizmos.color;
 
-            var thisGizmoColor = Color.red;
-            thisGizmoColor.a = isActive ? .4f : .2f;
-            Gizmos.color = thisGizmoColor;
-            Gizmos.DrawCube(spawnArea.bounds.center, spawnArea.bounds.size);
+                var thisGizmoColor = Color.red;
+                thisGizmoColor.a = isActive ? .4f : .2f;
+                Gizmos.color = thisGizmoColor;
+                Gizmos.DrawCube(spawnArea.bounds.center, spawnArea.bounds.size);
 
-            Gizmos.color = prevGizmosColor;
+                Gizmos.color = prevGizmosColor;
+            }
         }
         if (activators != null)
         {
@@ -81,7 +93,10 @@ public class Spawner : MonoBehaviour
 
             foreach (TriggerDetector activator in activators)
             {
-                Gizmos.DrawLine(spawnArea.bounds.center, activator.transform.position + (Vector3.up * 2f));
+                foreach (BoxCollider spawnArea in spawnAreas)
+                {
+                    Gizmos.DrawLine(spawnArea.bounds.center, activator.transform.position + (Vector3.up * 2f));
+                }
             }
 
             Gizmos.color = prevGizmosColor;
@@ -166,8 +181,9 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetRandomPosInSpawnArea()
     {
-        var randomPos = new Vector3(Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x), transform.position.y,
-                                    Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z));
+        var randomArea = spawnAreas[Random.Range(0, spawnAreas.Length)];
+        var randomPos = new Vector3(Random.Range(randomArea.bounds.min.x, randomArea.bounds.max.x), transform.position.y,
+                                    Random.Range(randomArea.bounds.min.z, randomArea.bounds.max.z));
 
         return randomPos;
     }

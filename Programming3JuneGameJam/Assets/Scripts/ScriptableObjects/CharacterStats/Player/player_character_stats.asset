@@ -15,8 +15,8 @@ MonoBehaviour:
   hierarchyName: Player
   basicHP: 100
   attackMultiplier: 0.5
-  basicSpd: 20
-  speedMultiplier: 0.5
+  basicSpd: 10
+  speedMultiplier: 0.3
   hitBoxHeight: 4
   hitBoxRadius: 1
   defenceAgainstNotEnraged: 0

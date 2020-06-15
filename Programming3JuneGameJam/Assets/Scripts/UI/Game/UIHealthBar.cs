@@ -11,6 +11,7 @@ public class UIHealthBar : MonoBehaviour
     [SerializeField] private Image fill = null;
     [SerializeField] private Image background = null;
     [SerializeField] private RectTransform rageThreshold = null;
+    [SerializeField] private Image rageThresholdImage = null;
 
     [Space(5), Title("Debugging")]
     [SerializeField] private bool isDebugging = false;
@@ -63,6 +64,8 @@ public class UIHealthBar : MonoBehaviour
             rageThreshold.anchorMin = new Vector2(character.Rage.stats.normalizedThreshold, 0f);
             rageThreshold.anchorMax = new Vector2(character.Rage.stats.normalizedThreshold, 1f);
             rageThreshold.anchoredPosition = Vector2.zero;
+            rageThresholdImage.color = character.HP / character.Stats.basicHP > character.Rage.stats.normalizedThreshold ?
+                                        Color.green : Color.red;
         }
     }
 

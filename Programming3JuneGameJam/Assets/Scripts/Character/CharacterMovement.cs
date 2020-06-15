@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
     #region Fields
+
+    public event Action<Vector3> OnLookAt;
 
     public Transform graphics;
 
@@ -47,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
         if (target != Vector3.zero)
         {
             transform.LookAt(target);
+            OnLookAt?.Invoke(target);
         }
     }
 

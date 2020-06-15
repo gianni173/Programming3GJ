@@ -56,11 +56,31 @@ public class Projectile : MonoBehaviour
     {
         if (!hasHit)
         {
-            var characterHit = other.GetComponent<Character>();
-            if (characterHit != null && characterHit.Faction.IsEnemy(owner.faction))
+            if (other.tag == "Wall")
             {
-                var damageInflicted = type.ProjectileBehaviour(characterHit, this);
-                owner.DamageInflicted(damageInflicted);
+                hasHit = true;
+                Despawn();
+            }
+            else 
+            {
+                var characterHit = other.GetComponent<Character>();
+                if (characterHit != null && characterHit.Faction.IsEnemy(owner.faction))
+                {
+                    var damageInflicted = type.ProjectileBehaviour(characterHit, this);
+                    owner.DamageInflicted(damageInflicted);
+                    hasHit = true;
+                    Despawn();
+                }
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!hasHit)
+        {
+            if (collision.gameObject.tag == "Wall")
+            {
                 hasHit = true;
                 Despawn();
             }

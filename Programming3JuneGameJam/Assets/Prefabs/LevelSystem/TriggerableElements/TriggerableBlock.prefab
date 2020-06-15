@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startsActive: 1
-  activators: []
+  triggerActivators: []
+  spawnerActivators: []
   anim: {fileID: 1537648413665381470}
 --- !u!208 &2832406834411031097
 NavMeshObstacle:
@@ -98,7 +99,7 @@ GameObject:
   - component: {fileID: 6241548903711039701}
   m_Layer: 0
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

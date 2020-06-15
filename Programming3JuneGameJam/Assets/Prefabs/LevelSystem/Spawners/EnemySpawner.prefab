@@ -48,8 +48,10 @@ MonoBehaviour:
   activators: []
   pulseMode: 1
   spawnerPulse: 5
+  spawnerDelay: 5
   waves: []
-  spawnArea: {fileID: 6124850668354276218}
+  spawnAreas:
+  - {fileID: 6124850668354276218}
   entitiesSpawnedContainer: {fileID: 5266726877835125180}
   entitiesSpawned: []
 --- !u!65 &6124850668354276218

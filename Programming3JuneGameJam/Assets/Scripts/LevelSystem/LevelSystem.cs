@@ -19,7 +19,7 @@ public class LevelSystem : Singleton<LevelSystem>
 
     private IEnumerator DelayedMapLoad()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         loadedMap = LoadMap();
         OnMapLoaded?.Invoke();
     }

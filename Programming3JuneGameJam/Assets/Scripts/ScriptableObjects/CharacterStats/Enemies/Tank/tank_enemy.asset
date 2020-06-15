@@ -15,7 +15,7 @@ MonoBehaviour:
   hierarchyName: Tank Enemy
   basicHP: 140
   attackMultiplier: 1
-  basicSpd: 4
+  basicSpd: 8
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1

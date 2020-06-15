@@ -15,5 +15,5 @@ MonoBehaviour:
   damageReceivedModifier: 0.2
   normalizedThreshold: 0.6
   rageDrainMultiplier: 0.4
-  rageTime: 8
+  rageTime: 10
   baseRageMultiplier: 3

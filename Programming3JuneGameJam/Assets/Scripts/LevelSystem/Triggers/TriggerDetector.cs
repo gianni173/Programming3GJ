@@ -55,17 +55,23 @@ public class TriggerDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(detectedTags.Contains(collision.tag))
+        if (isActive)
         {
-            TiggerEnter(collision);
+            if (detectedTags.Contains(collision.tag))
+            {
+                TiggerEnter(collision);
+            }
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if (detectedTags.Contains(collision.tag))
+        if (isActive)
         {
-            TiggerExit(collision);
+            if (detectedTags.Contains(collision.tag))
+            {
+                TiggerExit(collision);
+            }
         }
     }
 

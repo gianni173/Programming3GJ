@@ -326,6 +326,7 @@ MonoBehaviour:
   fill: {fileID: 6835455071268582400}
   background: {fileID: 6835455069939691498}
   rageThreshold: {fileID: 7174951004917973707}
+  rageThresholdImage: {fileID: 3409774804006816775}
   isDebugging: 0
   debugCurrentHp: {fileID: 11400000, guid: 0f012a9e7d02fe442b364625d6ce1f45, type: 2}
   debugMaxHp: {fileID: 11400000, guid: 3714fe457bb18c646944232669148f32, type: 2}

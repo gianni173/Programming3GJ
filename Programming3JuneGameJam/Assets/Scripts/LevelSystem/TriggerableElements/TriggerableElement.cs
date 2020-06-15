@@ -7,7 +7,8 @@ public class TriggerableElement : MonoBehaviour
 {
     [Title("Activations")]
     [SerializeField] private bool startsActive = true;
-    [SerializeField] private TriggerDetector[] activators = null;
+    [SerializeField] private TriggerDetector[] triggerActivators = null;
+    [SerializeField] private Spawner[] spawnerActivators = null;
 
     [Space(5), Title("Element Behaviour")]
     [SerializeField] private Animator anim = null;
@@ -28,14 +29,18 @@ public class TriggerableElement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (activators != null)
+        if (spawnerActivators != null)
         {
             var prevGizmosColor = Gizmos.color;
 
             var thisGizmoColor = Color.red;
             Gizmos.color = thisGizmoColor;
 
-            foreach (TriggerDetector activator in activators)
+            foreach (TriggerDetector activator in triggerActivators)
+            {
+                Gizmos.DrawLine(transform.position + (Vector3.up * 2f), activator.transform.position + (Vector3.up * 2f));
+            }
+            foreach (Spawner activator in spawnerActivators)
             {
                 Gizmos.DrawLine(transform.position + (Vector3.up * 2f), activator.transform.position + (Vector3.up * 2f));
             }
@@ -47,14 +52,30 @@ public class TriggerableElement : MonoBehaviour
     private void Start()
     {
         IsActive = startsActive;
-        foreach (TriggerDetector detector in activators)
+        foreach (TriggerDetector detector in triggerActivators)
         {
             detector.OnTriggerEntered += Activate;
+        }
+        foreach (Spawner spawner in spawnerActivators)
+        {
+            spawner.OnWavesCompleted += SpawnerCompleted;
         }
     }
 
     private void Activate(Collider collidedObject)
     {
+        IsActive = !IsActive;
+    }
+
+    private void SpawnerCompleted()
+    {
+        foreach (Spawner spawner in spawnerActivators)
+        {
+            if(spawner.isActive)
+            {
+                return;
+            }
+        }
         IsActive = !IsActive;
     }
 }

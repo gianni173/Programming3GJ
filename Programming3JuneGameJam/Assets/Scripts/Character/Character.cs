@@ -101,7 +101,7 @@ public class Character : MonoBehaviour
     private float spd = 0f;
     public float Spd
     {
-        get => spd * GetSpeedMultiplier();
+        get => spd + (spd * GetSpeedMultiplier());
         set
         {
             if (spd != value)
@@ -113,7 +113,7 @@ public class Character : MonoBehaviour
 
     public float GetSpeedMultiplier()
     {
-        return Stats.speedMultiplier * GetStatsMultiplier();
+        return Stats.speedMultiplier * (GetStatsMultiplier() - 1);
     }
 
     #endregion

@@ -15,7 +15,7 @@ MonoBehaviour:
   hierarchyName: Sniper Enemy
   basicHP: 40
   attackMultiplier: 1
-  basicSpd: 4
+  basicSpd: 7
   speedMultiplier: 1
   hitBoxHeight: 4
   hitBoxRadius: 1
