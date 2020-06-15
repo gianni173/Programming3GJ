@@ -59,6 +59,10 @@ public class Projectile : MonoBehaviour
             if (other.tag == "Wall")
             {
                 hasHit = true;
+                if (type.hitParticlePrefab)
+                {
+                    Instantiate(type.hitParticlePrefab, transform.position, Quaternion.identity);
+                }
                 Despawn();
             }
             else 

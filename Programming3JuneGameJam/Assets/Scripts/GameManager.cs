@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         CameraManager = CameraManager.Instance;
+        Cursor.visible = false;
     }
 
     public void Win()

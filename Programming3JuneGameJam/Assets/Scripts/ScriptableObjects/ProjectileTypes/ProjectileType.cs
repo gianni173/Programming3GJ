@@ -7,6 +7,7 @@ public abstract class ProjectileType : ScriptableObject
     #region Fields
 
     public GameObject prefab;
+    public GameObject hitParticlePrefab;
     public float speed = 20f;
     public float baseDamage = 10f;
     public DamageType damageType = null;

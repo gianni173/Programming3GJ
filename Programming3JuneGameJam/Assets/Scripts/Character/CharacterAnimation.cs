@@ -11,12 +11,20 @@ public class CharacterAnimation : MonoBehaviour
     [SerializeField] private Character character = null;
     [Required, SerializeField] private Animator animator = null;
 
+    //layers
+    private const string BaseLayer = "BaseLayer";
+    private const string UpperBodyLayer = "UpperBody";
+    private const string LowerBodyLayer = "LowerBody";
+    
+    //params
     private const string PosXParam = "PosX";
     private const string PosZParam = "PosY";
     private const string IsAimingParam = "IsAiming";
     private const string LightWeaponParam = "LightWeapon";
     private const string NormalWeaponParam = "NormalWeapon";
     private const string HeavyWeaponParam = "HeavyWeapon";
+    private const string RageParam = "Rage";
+    private const string DeathParam = "Death";
 
     #endregion
 
@@ -56,6 +64,24 @@ public class CharacterAnimation : MonoBehaviour
                 animator.SetBool(HeavyWeaponParam, true);
                 break;
         }
+    }
+
+    public void Rage()
+    {
+        animator.SetTrigger(RageParam);
+    }
+
+    public void Death()
+    {
+        animator.SetTrigger(DeathParam);
+    }
+
+    public void SetWeightSecondaryLayers(float weight)
+    {
+        int layerIndex = animator.GetLayerIndex(UpperBodyLayer);
+        animator.SetLayerWeight(layerIndex, weight);
+        layerIndex = animator.GetLayerIndex(LowerBodyLayer);
+        animator.SetLayerWeight(layerIndex, weight);
     }
 
     #endregion

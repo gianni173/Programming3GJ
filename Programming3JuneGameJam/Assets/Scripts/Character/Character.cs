@@ -54,13 +54,14 @@ public class Character : MonoBehaviour
                 {
                     Rage.enabled = !isDead;
                 };
-                Graphic.SetActive(!isDead);
+                //Graphic.SetActive(!isDead);
             }
         }
     }
 
     [SerializeField] private CapsuleCollider hitBox = null;
     [SerializeField] private GameObject rageCircle = null;
+    [SerializeField] private ParticleSystem rageParticle = null;
 
     // stats
     private float hp = 0f;
@@ -85,6 +86,7 @@ public class Character : MonoBehaviour
                     }
                     else
                     {
+                        rageParticle.Play();
                         Rage.StartRage();
                     }
                 }
@@ -238,6 +240,7 @@ public class Character : MonoBehaviour
     public void Die()
     {
         OnDeath?.Invoke(this);
+        Animation.Death();
         IsDead = true;
     }
 
