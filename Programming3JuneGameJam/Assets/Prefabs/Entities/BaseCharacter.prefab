@@ -210,7 +210,7 @@ MonoBehaviour:
   hitBox: {fileID: 1649386575929584303}
   rageCircle: {fileID: 2003891720964153406}
   rageParticle: {fileID: 6484319402587781269}
-  bloodRageParticle: {fileID: 5853607346798525298, guid: 2f4ed6a8add8ed945860a6960699c971,
+  bloodRageParticle: {fileID: 1666836652455807292, guid: f03de9df6e9323f42af31e223179eb95,
     type: 3}
   bloodRageParticleContainer: {fileID: 36235376891530444}
 --- !u!114 &3435319643861117319

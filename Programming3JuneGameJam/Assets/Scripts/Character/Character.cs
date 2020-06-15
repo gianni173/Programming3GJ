@@ -224,12 +224,14 @@ public class Character : MonoBehaviour
             {
                 var newParticle = Instantiate(bloodRageParticle);
 
-                newParticle.transform.position = transform.position;
-                newParticle.transform.forward = target.transform.position - transform.position;
-
-                var followTargetComponent = newParticle.GetComponent<FollowTarget>();
-                followTargetComponent.target = transform;
-                followTargetComponent.offset = bloodRageParticleContainer.transform.position - newParticle.transform.position;
+                newParticle.transform.position = target.transform.position;
+                newParticle.GetComponent<ReachTarget>().target = transform;
+                // newParticle.transform.position = transform.position;
+                // newParticle.transform.forward = target.transform.position - transform.position;
+                //
+                // var followTargetComponent = newParticle.GetComponent<FollowTarget>();
+                // followTargetComponent.target = transform;
+                // followTargetComponent.offset = bloodRageParticleContainer.transform.position - newParticle.transform.position;
             }
         }
     }
